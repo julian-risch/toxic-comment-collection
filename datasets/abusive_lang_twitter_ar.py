@@ -1,12 +1,11 @@
 from . import dataset
 import os
-import zipfile
 from io import BytesIO
 import pandas as pd
 
-class Tweet_classification(dataset.Dataset):
+class Abusive_lang_twitter_ar(dataset.Dataset):
     
-    name = "tweet_classification"
+    name = "Abusive_lang_twitter_ar"
     url = "http://alt.qcri.org/~hmubarak/offensive/TweetClassification-Summary.xlsx"
     training_files = [
         "tweet_classification.csv"
