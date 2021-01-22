@@ -6,7 +6,7 @@ This script requires the following dependencies to be installed:
 - openpyxl
 
 ## Status
-The following Datasets have been included in this projects
+The following Datasets have been included in this project  
 Github Datasets: https://github.com/leondz/hatespeechdata
 |  # | State | Name | Class |
 |  - |:-----:| ---- | ----- |
