@@ -2,6 +2,7 @@ from . import dataset
 import os
 import zipfile
 from io import BytesIO
+from . import helpers
 
 class Hate_speech_mlma(dataset.Dataset):
     
@@ -37,7 +38,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."""
 
     @classmethod
-    def process_downloaded_file(cls, file_obj, destination_folder):
-        os.makedirs(destination_folder, exist_ok=True)
-        with zipfile.ZipFile(BytesIO(file_obj.read())) as zip_file:
-            zip_file.extractall(destination_folder)
+    def download_and_process(cls, dataset_folder, temp_folder):
+        tmp_file_path = helpers.download_from(cls.url, temp_folder)
+        tmp_dir_path = helpers.unzip_file(tmp_file_path)
+        helpers.copy_file(os.path.join(tmp_dir_path, "hate_speech_mlma/ar_dataset.csv"), os.path.join(dataset_folder, "ar_dataset.csv"))
+        helpers.copy_file(os.path.join(tmp_dir_path, "hate_speech_mlma/en_dataset.csv"), os.path.join(dataset_folder, "en_dataset.csv"))
+        helpers.copy_file(os.path.join(tmp_dir_path, "hate_speech_mlma/fr_dataset.csv"), os.path.join(dataset_folder, "fr_dataset.csv"))
+        helpers.copy_file(os.path.join(tmp_dir_path, "hate_speech_mlma/en_dataset_with_stop_words.csv"), os.path.join(dataset_folder, "en_dataset_with_stop_words.csv"))
+        

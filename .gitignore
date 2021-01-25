@@ -142,3 +142,4 @@ cython_debug/
 
 # folder created by the script
 files/
+tmp/

@@ -2,6 +2,7 @@ from . import dataset
 import os
 import pandas as pd
 from io import BytesIO
+from . import helpers
 
 class Abusive_lang_aljazeera_ar(dataset.Dataset):
     
@@ -12,9 +13,7 @@ class Abusive_lang_aljazeera_ar(dataset.Dataset):
     license = """ """
 
     @classmethod
-    def process_downloaded_file(cls, file_obj, destination_folder):
-        file_path = os.path.join(destination_folder, cls.name + ".csv")
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        excel_file = pd.read_excel(BytesIO(file_obj.read()))
-        with open(file_path, 'wb') as f:
-            excel_file.to_csv(f)
+    def download_and_process(cls, dataset_folder, temp_folder):
+        tmp_file_path = helpers.download_from(cls.url, temp_folder)
+        tmp_file_path = helpers.convert_excel_to_csv(tmp_file_path)
+        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, cls.name + ".csv"))
