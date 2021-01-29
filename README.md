@@ -22,14 +22,14 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 10 | Done (v1) | Hate Speech Dataset from a White Supremacy Forum | White_supremacy_forum_en |
 | 11 | Twitter API required | Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter |  |
 | 12 | Done (v1) | Detecting Online Hate Speech Using Context Aware Models | Fox_news_user_comments_en |
-| 13 |  |  |  |
-| 14 |  |  |  |
-| 15 |  |  |  |
-| 16 |  |  |  |
-| 17 |  |  |  |
-| 18 |  |  |  |
-| 19 |  |  |  |
-| 20 |  |  |  |
+| 13 | Twitter API required | Are You a Racist or Am I Seeing Things? Annotator Influence on Hate Speech Detection on Twitter |  |
+| 14 | Twitter API required | When Does a Compliment Become Sexist? Analysis and Classification of Ambivalent Sexism Using Twitter Data |  |
+| 15 | Password required | Overview of the Task on Automatic Misogyny Identification at IberEval 2018 (English) |  |
+| 16 | Done (v1) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Conan |
+| 17 | Not suited | Characterizing and Detecting Hateful Users on Twitter |  |
+| 18 | Done (v1) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Gab) | Intervene_online_hs_en |
+| 19 | Done (v1) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Reddit) | Intervene_online_hs_en |
+| 20 | Done (v1) | Multilingual and Multi-Aspect Hate Speech Analysis (English) | Hate_speech_mlma |
 | 21 |  |  |  |
 | 22 |  |  |  |
 | 23 |  |  |  |

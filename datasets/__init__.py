@@ -5,7 +5,8 @@ from . import abusive_lang_aljazeera_ar
 from . import ahsd_en
 from . import white_supremacy_forum_en
 from . import fox_news_user_comments_en
-
+from . import conan
+from . import intervene_online_hs_en
 def get_datasets():
     return [
         hate_speech_mlma.Hate_speech_mlma(),
@@ -14,5 +15,7 @@ def get_datasets():
         abusive_lang_aljazeera_ar.Abusive_lang_aljazeera_ar(),
         ahsd_en.Ahsd_en(),
         white_supremacy_forum_en.White_supremacy_forum_en(),
-        fox_news_user_comments_en.Fox_news_user_comments_en()
+        fox_news_user_comments_en.Fox_news_user_comments_en(),
+        conan.Conan(),
+        intervene_online_hs_en.Intervene_online_hs_en(),
     ]
