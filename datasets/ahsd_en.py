@@ -2,11 +2,11 @@ from . import dataset
 from . import helpers
 import os
 
-class Hate_speech_mlma(dataset.Dataset):
+class Ahsd_en(dataset.Dataset):
     
-    name = ""
-    url = ""
-    training_files = []
+    name = "ahsd_en"
+    url = "https://github.com/t-davidson/hate-speech-and-offensive-language/raw/master/data/labeled_data.csv"
+    training_files = ["ahsd_en.csv"]
     test_files = []
     license = """ """
 

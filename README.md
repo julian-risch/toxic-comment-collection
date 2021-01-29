@@ -17,11 +17,11 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 |  5 | Done (v1) | Abusive Language Detection on Arabic Social Media (Al Jazeera) | abusive_lang_aljazeera_ar |
 |  6 | Postponed (OneDrive) | Dataset Construction for the Detection of Anti-Social Behaviour in Online Communication in Arabic |  |
 |  7 | Postponed (Login Required) | Datasets of Slovene and Croatian Moderated News Comments |  |
-|  8 |  | Offensive Language and Hate Speech Detection for Danish |  |
-|  9 |  |  |  |
-| 10 |  |  |  |
-| 11 |  |  |  |
-| 12 |  |  |  |
+|  8 | Twitter API required | Offensive Language and Hate Speech Detection for Danish |  |
+|  9 | Done (v1) | Automated Hate Speech Detection and the Problem of Offensive Language | Ahsd_en |
+| 10 | Done (v1) | Hate Speech Dataset from a White Supremacy Forum | White_supremacy_forum_en |
+| 11 | Twitter API required | Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter |  |
+| 12 | Done (v1) | Detecting Online Hate Speech Using Context Aware Models | Fox_news_user_comments_en |
 | 13 |  |  |  |
 | 14 |  |  |  |
 | 15 |  |  |  |

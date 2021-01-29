@@ -24,6 +24,12 @@ def copy_file(source_file : str, destination_file : str):
     shutil.copyfile(source_file, destination_file)
     return destination_file
 
+def convert_json_to_csv(file_name : str) -> str:
+    new_file = file_name + ".csv"
+    json_data = pd.read_json(file_name)
+    json_data.to_csv(new_file)
+    return new_file
+
 def unzip_file(file_name : str):
     extraction_dir = os.path.join(os.path.dirname(file_name), os.path.basename(file_name) + "_extracted")
     os.makedirs(extraction_dir, exist_ok=False)
