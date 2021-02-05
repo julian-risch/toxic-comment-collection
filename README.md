@@ -76,13 +76,13 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 
 ## Next Steps
 ### Implementation
-* logging https://docs.python.org/3/howto/logging.html
-* progress bar, tqdm https://github.com/tqdm/tqdm
-* let's add a requirements.txt so that users can simply run `pip install -r requirements.txt`
+* ~~logging https://docs.python.org/3/howto/logging.html~~
+* ~~progress bar, tqdm https://github.com/tqdm/tqdm~~
+* ~~let's add a requirements.txt so that users can simply run `pip install -r requirements.txt`~~
 
 ### Store per csv file: 
 * name of the file, e.g., authorYEARlang (schmidt2021de)
-* hash (to check whether any changes ahve been made to the dataset)
+* hash (to check whether any changes have been made to the dataset)
 * language (en, de)
 * source platform (Twitter, ...)
 
