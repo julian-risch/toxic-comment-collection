@@ -73,3 +73,23 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 61 |  |  |  |
 | 62 |  |  |  |
 | 63 |  |  |  |
+
+## Next Steps
+### Implementation
+* logging https://docs.python.org/3/howto/logging.html
+* progress bar, tqdm https://github.com/tqdm/tqdm
+* let's add a requirements.txt so that users can simply run `pip install -r requirements.txt`
+
+### Store per csv file: 
+* name of the file, e.g., authorYEARlang (schmidt2021de)
+* hash (to check whether any changes ahve been made to the dataset)
+* language (en, de)
+* source platform (Twitter, ...)
+
+### Store per row in each csv file:
+* id (str)
+* text (str)
+* label1 (str), 
+* label2 (str)
+This list can be extended later (timestamp, response text, ...)
+Let's not use booleans or integers as values in the label column but more explicit strings, such as "offensive"
