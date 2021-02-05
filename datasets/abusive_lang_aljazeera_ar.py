@@ -10,6 +10,10 @@ class Abusive_lang_aljazeera_ar(dataset.Dataset):
     url = "http://alt.qcri.org/~hmubarak/offensive/AJCommentsClassification-CF.xlsx"
     training_files = []
     test_files = []
+    comment = """Annotation	Meaning
+0	NORMAL_LANGUAGE
+-1	OFFENSIVE_LANGUAGE
+-2	OBSCENE_LANGUAGE"""
     license = """ """
 
     @classmethod
