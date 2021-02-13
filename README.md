@@ -27,9 +27,9 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 15 | Password required | Overview of the Task on Automatic Misogyny Identification at IberEval 2018 (English) |  |
 | 16 | Done (v2) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
 | 17 | Not suited | Characterizing and Detecting Hateful Users on Twitter |  |
-| 18 | Done (v1) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Gab) | Qian2019 |
-| 19 | Done (v1) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Reddit) | Qian2019 |
-| 20 | Done (v1) | Multilingual and Multi-Aspect Hate Speech Analysis (English) | Ousidhoum2019 |
+| 18 | Done (v2) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Gab) | Qian2019 |
+| 19 | Done (v2) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Reddit) | Qian2019 |
+| 20 | Done (v2) | Multilingual and Multi-Aspect Hate Speech Analysis (English) | Ousidhoum2019 |
 | 21 |  |  |  |
 | 22 |  |  |  |
 | 23 |  |  |  |
