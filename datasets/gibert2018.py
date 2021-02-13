@@ -3,12 +3,19 @@ from . import helpers
 import pandas as pd
 import os
 
-class White_supremacy_forum_en(dataset.Dataset):
+class Gibert2018(dataset.Dataset):
     
-    name = "white_supremacy_forum_en"
+    name = "gibert2018"
     url = "https://github.com/Vicomtech/hate-speech-dataset/archive/master.zip"
-    training_files = []
-    test_files = []
+    hash = "acc0d7ce40e22cf019daa752a5136049a45462b9ba4eab8bf40ea82dcd867eba"
+    files = [
+        {
+            "name": "gibert2018en.csv",
+            "language": "en",
+            "type": "training",
+            "platform": "stormfront"
+        }
+    ]
     license = """The resources in this repository are licensed under the Creative Commons Attribution-ShareAlike 3.0 Spain
 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/es/ or send
 a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA."""
@@ -23,14 +30,13 @@ a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA."""
     @classmethod
     def merge_txt_to_csv(cls, directory):
         df = pd.read_csv(os.path.join(directory, "annotations_metadata.csv"))
-        df = df.apply(White_supremacy_forum_en.replace_csv_entry_with_filecontents, axis=1, args=(directory,))
+        df = df.apply(cls.replace_csv_entry_with_filecontents, axis=1, args=(directory,))
         output_file = os.path.join(directory, cls.name + ".csv")
         df.to_csv(output_file)
         return output_file
 
     @classmethod
-    def download_and_process(cls, dataset_folder, temp_folder):
-        tmp_file_path = helpers.download_from(cls.url, temp_folder)
+    def process(cls, tmp_file_path, dataset_folder, temp_folder):
         extraction_dir = helpers.unzip_file(tmp_file_path)
-        tmp_file_path = White_supremacy_forum_en.merge_txt_to_csv(os.path.join(extraction_dir, "hate-speech-dataset-master"))
-        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, cls.name + ".csv"))
+        tmp_file_path = cls.merge_txt_to_csv(os.path.join(extraction_dir, "hate-speech-dataset-master"))
+        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "gibert2018en.csv"))

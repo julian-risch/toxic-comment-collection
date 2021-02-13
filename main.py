@@ -1,5 +1,4 @@
 import datasets
-from datasets import hate_speech_mlma
 import os
 import shutil
 import sys
@@ -51,9 +50,12 @@ def fetch_datasets(filedir, tempdir):
     logging.info("Download Data and perform initial processing")
     max_suffix_length = 0
     for idx, dataset in enumerate(datasets.get_datasets()):
-        max_suffix_length = _print_progress_bar(idx, len(datasets.get_datasets()), dataset.name, max_suffix_length)
+        max_suffix_length = _print_progress_bar(idx *2, len(datasets.get_datasets()) *2, "Download " + dataset.name, max_suffix_length)
         _clear_directory(tempdir)
-        dataset.download_and_process(os.path.join(filedir, str(idx)), tempdir)
+        file = dataset.download(tempdir)
+        max_suffix_length = _print_progress_bar(idx *2 +1, len(datasets.get_datasets()) *2, "Process " + dataset.name, max_suffix_length)
+        dataset.valid_hash(file)
+        dataset.process(file, os.path.join(filedir, dataset.name), tempdir)
     _print_progress_bar(len(datasets.get_datasets()), len(datasets.get_datasets()), "Done", max_suffix_length)
     logging.info("Done fetching Datasets")
 

@@ -1,21 +1,22 @@
-from . import hate_speech_mlma
-from . import lhsab
-from . import abusive_lang_twitter_ar
-from . import abusive_lang_aljazeera_ar
-from . import ahsd_en
-from . import white_supremacy_forum_en
-from . import fox_news_user_comments_en
-from . import conan
-from . import intervene_online_hs_en
+from . import ousidhoum2019
+from . import mulki2019
+from . import mubarak2017twitter
+from . import mubarak2017aljazeera
+from . import davidson2017
+from . import gibert2018
+from . import gao2018
+from . import chung2019
+from . import qian2019
+
 def get_datasets():
     return [
-        hate_speech_mlma.Hate_speech_mlma(),
-        lhsab.Lhsab(),
-        abusive_lang_twitter_ar.Abusive_lang_twitter_ar(),
-        abusive_lang_aljazeera_ar.Abusive_lang_aljazeera_ar(),
-        ahsd_en.Ahsd_en(),
-        white_supremacy_forum_en.White_supremacy_forum_en(),
-        fox_news_user_comments_en.Fox_news_user_comments_en(),
-        conan.Conan(),
-        intervene_online_hs_en.Intervene_online_hs_en(),
+        ousidhoum2019.Ousidhoum2019(),
+        mulki2019.Mulki2019(),
+        mubarak2017twitter.Mubarak2017twitter(),
+        mubarak2017aljazeera.Mubarak2017aljazeera(),
+        davidson2017.Davidson2017(),
+        gibert2018.Gibert2018(),
+        gao2018.Gao2018(),
+        chung2019.Chung2019(),
+        qian2019.Qian2019(),
     ]

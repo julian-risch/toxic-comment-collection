@@ -11,25 +11,25 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 |  # | State | Name | Class |
 |  - |:-----:| ---- | ----- |
 |  1 | Files not found | Are They our Brothers? Analysis and Detection of Religious Hate Speech in the Arabic Twittersphere |  |
-|  2 | Done (v1) | Multilingual and Multi-Aspect Hate Speech Analysis (Arabic) | Hate_speech_mlma |
-|  3 | Done (v1) | L-HSAB: A Levantine Twitter Dataset for Hate Speech and Abusive Language | Lhsab |
-|  4 | Done (v1) | Abusive Language Detection on Arabic Social Media (Twitter) | abusive_lang_twitter_ar |
-|  5 | Done (v1) | Abusive Language Detection on Arabic Social Media (Al Jazeera) | abusive_lang_aljazeera_ar |
+|  2 | Done (v2) | Multilingual and Multi-Aspect Hate Speech Analysis (Arabic) | Ousidhoum2019 |
+|  3 | Done (v2) | L-HSAB: A Levantine Twitter Dataset for Hate Speech and Abusive Language | mulki2019 |
+|  4 | Done (v2) | Abusive Language Detection on Arabic Social Media (Twitter) | Mubarak2017twitter |
+|  5 | Done (v2) | Abusive Language Detection on Arabic Social Media (Al Jazeera) | Mubarak2017aljazeera|
 |  6 | Postponed (OneDrive) | Dataset Construction for the Detection of Anti-Social Behaviour in Online Communication in Arabic |  |
 |  7 | Postponed (Login Required) | Datasets of Slovene and Croatian Moderated News Comments |  |
 |  8 | Twitter API required | Offensive Language and Hate Speech Detection for Danish |  |
-|  9 | Done (v1) | Automated Hate Speech Detection and the Problem of Offensive Language | Ahsd_en |
-| 10 | Done (v1) | Hate Speech Dataset from a White Supremacy Forum | White_supremacy_forum_en |
+|  9 | Done (v2) | Automated Hate Speech Detection and the Problem of Offensive Language | Davidson2017 |
+| 10 | Done (v2) | Hate Speech Dataset from a White Supremacy Forum | Gibert2018 |
 | 11 | Twitter API required | Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter |  |
-| 12 | Done (v1) | Detecting Online Hate Speech Using Context Aware Models | Fox_news_user_comments_en |
+| 12 | Done (v2) | Detecting Online Hate Speech Using Context Aware Models | Gao2018 |
 | 13 | Twitter API required | Are You a Racist or Am I Seeing Things? Annotator Influence on Hate Speech Detection on Twitter |  |
 | 14 | Twitter API required | When Does a Compliment Become Sexist? Analysis and Classification of Ambivalent Sexism Using Twitter Data |  |
 | 15 | Password required | Overview of the Task on Automatic Misogyny Identification at IberEval 2018 (English) |  |
-| 16 | Done (v1) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Conan |
+| 16 | Done (v2) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
 | 17 | Not suited | Characterizing and Detecting Hateful Users on Twitter |  |
-| 18 | Done (v1) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Gab) | Intervene_online_hs_en |
-| 19 | Done (v1) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Reddit) | Intervene_online_hs_en |
-| 20 | Done (v1) | Multilingual and Multi-Aspect Hate Speech Analysis (English) | Hate_speech_mlma |
+| 18 | Done (v1) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Gab) | Qian2019 |
+| 19 | Done (v1) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Reddit) | Qian2019 |
+| 20 | Done (v1) | Multilingual and Multi-Aspect Hate Speech Analysis (English) | Ousidhoum2019 |
 | 21 |  |  |  |
 | 22 |  |  |  |
 | 23 |  |  |  |

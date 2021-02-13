@@ -2,12 +2,19 @@ from . import dataset
 from . import helpers
 import os
 
-class Fox_news_user_comments_en(dataset.Dataset):
+class Gao2018(dataset.Dataset):
     
-    name = "fox_news_user_comments_en"
+    name = "gao2018"
     url = "https://github.com/sjtuprog/fox-news-comments/raw/master/full-comments-u.json"
-    training_files = []
-    test_files = []
+    hash = "059152e61f632f1e6671a68214d5618a21e6cf78f2512773e0421b9568aab8cf"
+    files = [
+        {
+            "name": "gao2018en.csv",
+            "language": "en",
+            "type": "training",
+            "platform": "fox news"
+        }
+    ]
     license = """ """
 
     @classmethod
@@ -27,8 +34,7 @@ class Fox_news_user_comments_en(dataset.Dataset):
                     
 
     @classmethod
-    def download_and_process(cls, dataset_folder, temp_folder):
-        tmp_file_path = helpers.download_from(cls.url, temp_folder)
-        tmp_file_path = Fox_news_user_comments_en.repair_json_file(tmp_file_path)
+    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+        tmp_file_path = cls.repair_json_file(tmp_file_path)
         tmp_file_path = helpers.convert_json_to_csv(tmp_file_path)
-        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, cls.name + ".csv"))
+        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "gao2018en.csv"))
