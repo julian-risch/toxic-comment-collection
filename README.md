@@ -93,3 +93,6 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 * label2 (str)
 This list can be extended later (timestamp, response text, ...)
 Let's not use booleans or integers as values in the label column but more explicit strings, such as "offensive"
+
+### More datasets we should also include:
+* https://github.com/punyajoy/Fear-speech-analysis/
