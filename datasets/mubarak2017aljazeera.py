@@ -27,3 +27,17 @@ class Mubarak2017aljazeera(dataset.Dataset):
     def process(cls, tmp_file_path, dataset_folder, temp_folder):
         tmp_file_path = helpers.convert_excel_to_csv(tmp_file_path)
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "mubarak2017ar_aljazeera.csv"))
+
+    @classmethod
+    def unify_row(cls, row):
+        row["text"] = row["body"]
+        labels = []
+        if row["languagecomment"] == 0:
+            labels.append("normal")
+        if row["languagecomment"] == -1:
+            labels.append("offensive")
+        if row["languagecomment"] == -2:
+            labels.append("obscene")
+        row["labels"] = labels
+        row = row.drop(["_unit_id","_golden","_unit_state","_trusted_judgments","_last_judgment_at","languagecomment","languagecomment:confidence","articletitle","body","bodylen","insdt","languagecomment_gold","link","serial","words"])
+        return row

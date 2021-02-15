@@ -3,6 +3,16 @@ import os
 import zipfile
 from io import BytesIO
 from . import helpers
+import pandas as pd
+
+
+# From the Paper:
+# Hence, our annotations indicate
+# (a) whether the text is direct or indirect
+# (b) if it is offensive, disrespectful, hate-ful, fearful out of ignorance, abusive, or normal
+# (c) the  attribute  based  on  which  it  discriminates against an individual or a group of people
+# (d) the name  of  this  group
+# (e) how  the  annotators feel  about  its  content  within  a  range  of  negative to neutral sentiments.
 
 class Ousidhoum2019(dataset.Dataset):
     
@@ -68,4 +78,12 @@ SOFTWARE."""
         helpers.copy_file(os.path.join(tmp_dir_path, "hate_speech_mlma/en_dataset.csv"), os.path.join(dataset_folder, "ousidhoum2019en.csv"))
         helpers.copy_file(os.path.join(tmp_dir_path, "hate_speech_mlma/fr_dataset.csv"), os.path.join(dataset_folder, "ousidhoum2019fr.csv"))
         helpers.copy_file(os.path.join(tmp_dir_path, "hate_speech_mlma/en_dataset_with_stop_words.csv"), os.path.join(dataset_folder, "ousidhoum2019en_with_stopwords.csv"))
+
+    @classmethod
+    def unify_row(cls, row):
+        labels = row["sentiment"].split("_")
+        labels.append(row["directness"])
+        row["labels"] = labels
+        row = row.drop(["annotator_sentiment","target","group","directness","HITId","sentiment"])
+        return row
         

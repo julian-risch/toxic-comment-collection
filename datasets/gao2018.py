@@ -15,26 +15,44 @@ class Gao2018(dataset.Dataset):
             "platform": "fox news"
         }
     ]
-    license = """ """
+    comment = """Inflammatory language explicitly or implicitly threatens or demeans a person or agroup based upon a facet of their identity such as gender, ethnicity, or sexualorientation.
+- Excludes insults towards other anonymous users
+- Includes insults of belief systems"""
 
-    @classmethod
-    def repair_json_file(cls, file):
-        new_file = os.path.join(os.path.dirname(file), os.path.basename(file) + ".new")
-        with open(file, 'r') as of:
-            with open(new_file, 'w') as nf:
-                nf.write("[\n")
-                lines = of.readlines()
-                for idx, line in enumerate(lines):
-                    new_line = line
-                    if idx < len(lines) -1:
-                        new_line = line.replace("}\n", "},\n")
-                    nf.write(new_line)
-                nf.write("]\n")
-        return new_file
-                    
+    license = """The MIT License
+
+Copyright (c) 2010-2019 Google, Inc. http://angularjs.org
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE."""
 
     @classmethod
     def process(cls, tmp_file_path, dataset_folder, temp_folder):
-        tmp_file_path = cls.repair_json_file(tmp_file_path)
-        tmp_file_path = helpers.convert_json_to_csv(tmp_file_path)
+        tmp_file_path = helpers.convert_jsonl_to_csv(tmp_file_path)
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "gao2018en.csv"))
+
+    @classmethod
+    def unify_row(cls, row):
+        labels = []
+        if row["label"] == 0:
+            labels.append("normal")
+        if row["label"] == 1:
+            labels.append("hate")
+        row["labels"] = labels
+        row = row.drop(["title","succ","meta","user","mentions","prev", "label"])
+        return row

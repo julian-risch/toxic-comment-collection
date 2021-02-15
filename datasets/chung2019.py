@@ -25,5 +25,23 @@ class Chung2019(dataset.Dataset):
             a = json.load(f)
         b = pd.DataFrame(a['conan'])
         tmp_file_path = tmp_file_path + ".csv"
-        b.to_csv(tmp_file_path)
+        b.to_csv(tmp_file_path, index=False)
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "chung2019en.csv"))
+
+    @classmethod
+    def unify_row(cls, row):
+        row["text"] = row["hateSpeech"]
+        labels = ["hate"]
+        labels.append(row["hsType"])
+        row["labels"] = labels
+        row = row.drop(["cn_id","age","gender","educationLevel","cnType","hsType","hsSubType","hateSpeech","counterSpeech"])
+        return row
+
+    @classmethod
+    def unify_format(cls, dataset_folder):
+        for file in cls.files:
+            df = pd.read_csv(os.path.join(dataset_folder, file["name"]))
+            df = df.apply(cls.unify_row, axis=1)
+            df = df.drop_duplicates(subset=["text"])
+            df.to_csv(os.path.join(dataset_folder, file["name"]), index_label="id")
+        

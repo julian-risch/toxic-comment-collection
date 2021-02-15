@@ -40,3 +40,18 @@ a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA."""
         extraction_dir = helpers.unzip_file(tmp_file_path)
         tmp_file_path = cls.merge_txt_to_csv(os.path.join(extraction_dir, "hate-speech-dataset-master"))
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "gibert2018en.csv"))
+
+    @classmethod
+    def unify_row(cls, row):
+        labels = []
+        if row["label"] == "noHate":
+            labels.append("normal")
+        if row["label"] == "hate":
+            labels.append("hate")
+        if row["label"] == "idk/skip":
+            labels.append("unknown")
+        if row["label"] == "relation":
+            labels.append("relation")
+        row["labels"] = labels
+        row = row.drop(["Unnamed: 0","subforum_id","file_id","user_id","num_contexts","label"])
+        return row

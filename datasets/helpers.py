@@ -2,6 +2,7 @@ import os
 import shutil
 import zipfile
 import pandas as pd
+import json
 from io import BytesIO
 from urllib.request import urlopen
 
@@ -16,10 +17,10 @@ def download_from(url : str, destination_folder : str, file_name : str = "downlo
 def convert_excel_to_csv(file_name : str) -> str:
     new_file = file_name + ".csv"
     excel_data = pd.read_excel(file_name)
-    excel_data.to_csv(new_file)
+    excel_data.to_csv(new_file, index=False)
     return new_file
 
-def copy_file(source_file : str, destination_file : str):
+def copy_file(source_file : str, destination_file : str) -> str:
     os.makedirs(os.path.dirname(destination_file), exist_ok=True)
     shutil.copyfile(source_file, destination_file)
     return destination_file
@@ -27,7 +28,17 @@ def copy_file(source_file : str, destination_file : str):
 def convert_json_to_csv(file_name : str) -> str:
     new_file = file_name + ".csv"
     json_data = pd.read_json(file_name)
-    json_data.to_csv(new_file)
+    json_data.to_csv(new_file, index=False)
+    return new_file
+
+def convert_jsonl_to_csv(file_name : str) -> str:
+    new_file = file_name + ".json"
+    data = []
+    with open(file_name, "r") as jsonl_file:
+        for line in jsonl_file:
+            data.append(json.loads(line))
+    df = pd.DataFrame(data)
+    df.to_csv(new_file, index=False)
     return new_file
 
 def unzip_file(file_name : str):
