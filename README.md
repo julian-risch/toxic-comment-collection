@@ -75,6 +75,14 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 63 |  |  |  |
 
 ## Next Steps
+* 16.02. request Twitter API access
+* 23.02. Twitter datasets: One tweet id per line, txt file; 5 new datasets
+* 02.03. Twitter datasets: twarc gets tweet texts via API; convert to csv file; 5 new datasets
+* 09.03. 5 new datasets
+* 16.03. merge class labels or split; combine multiple datasets; 5 new datasets
+* postponed: generate dataset statistics
+
+
 ### Implementation
 * ~~logging https://docs.python.org/3/howto/logging.html~~
 * ~~progress bar, tqdm https://github.com/tqdm/tqdm~~
