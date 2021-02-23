@@ -7,7 +7,9 @@ This script requires the following dependencies to be installed:
 
 ## Status
 The following Datasets have been included in this project  
-leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
+leondz/hatespeechdata : https://github.com/leondz/hatespeechdata 
+
+(can be accessed via : http://ckan.hatespeechdata.com)
 |  # | State | Name | Class |
 |  - |:-----:| ---- | ----- |
 |  1 | Files not found | Are They our Brothers? Analysis and Detection of Religious Hate Speech in the Arabic Twittersphere |  |
