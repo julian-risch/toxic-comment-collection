@@ -24,8 +24,8 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 10 | Done (v3) | Hate Speech Dataset from a White Supremacy Forum | Gibert2018 |
 | 11 | Done (v3) | Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter | Waseem2016 |
 | 12 | Done (v3) | Detecting Online Hate Speech Using Context Aware Models | Gao2018 |
-| 13 | Twitter API required | Are You a Racist or Am I Seeing Things? Annotator Influence on Hate Speech Detection on Twitter |  |
-| 14 | Twitter API required | When Does a Compliment Become Sexist? Analysis and Classification of Ambivalent Sexism Using Twitter Data |  |
+| 13 | Done (v3) | Are You a Racist or Am I Seeing Things? Annotator Influence on Hate Speech Detection on Twitter | Waseem2016 |
+| 14 | Done (v3) | When Does a Compliment Become Sexist? Analysis and Classification of Ambivalent Sexism Using Twitter Data | Jha2017 |
 | 15 | Password required | Overview of the Task on Automatic Misogyny Identification at IberEval 2018 (English) |  |
 | 16 | Done (v3) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
 | 17 | Not suited | Characterizing and Detecting Hateful Users on Twitter |  |

@@ -4,8 +4,6 @@ import shutil
 import sys
 import getopt
 import logging
-import threading
-import datetime
 
 TEMPDIR = "./tmp"
 FILEDIR = "./files"
@@ -62,8 +60,6 @@ def fetch_datasets(filedir, tempdir, unify=True):
         dataset.valid_hash(file)
         dataset.process(file, os.path.join(filedir, dataset.name), tempdir)
         if unify:
-            #x = threading.Thread(target=dataset.unify_format, args=(os.path.join(filedir, dataset.name),))
-            #x.start()
             dataset.unify_format(os.path.join(filedir, dataset.name))
     _print_progress_bar(len(datasets.get_datasets()), len(datasets.get_datasets()), "Done", max_suffix_length)
     logging.info("Done fetching Datasets")

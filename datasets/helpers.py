@@ -49,6 +49,13 @@ def unzip_file(file_name : str):
         zip_file.extractall(extraction_dir)
     return extraction_dir
 
+def add_column(file_name : str, column_name : str, column_value) -> str:
+    new_file = file_name + "_new_column"
+    df = pd.read_csv(file_name)
+    df.insert(loc=0, column=column_name, value=[column_value] * df.count().tweet_id)
+    df.to_csv(new_file, index=False)
+    return new_file
+
 def clean_csv(file_name : str, names : [str] = None ) -> str:
     new_file = file_name + "_clean"
     df = pd.read_csv(file_name, names=names)
