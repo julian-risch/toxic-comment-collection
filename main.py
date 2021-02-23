@@ -4,6 +4,8 @@ import shutil
 import sys
 import getopt
 import logging
+import threading
+import datetime
 
 TEMPDIR = "./tmp"
 FILEDIR = "./files"
@@ -12,7 +14,7 @@ logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
 
 def main(args):
     try:
-        arguments = dict(getopt.getopt(args, "-r -? -t: -f:", ['reset', 'help', 'tempdir', 'filedir'])[0])
+        arguments = dict(getopt.getopt(args, "-r -? -o -t: -f:", ['reset', 'help', 'original', 'tempdir', 'filedir'])[0])
     except:
         logging.error("Invalid argument!")
         print_help()
@@ -31,11 +33,14 @@ def main(args):
     if ("--help" in arguments or "-?" in arguments):
         print_help()
         exit()
-    elif ("--reset" in arguments or "-r" in arguments):
+    
+    if ("--reset" in arguments or "-r" in arguments):
         clear_all()
         exit()
+    
+    unify = not ("--original" in arguments or "-o" in arguments)
 
-    fetch_datasets(filedir, tempdir)
+    fetch_datasets(filedir, tempdir, unify=unify)
 
 def print_help():
     print("""Usage: python3 main.py [-r][-?]
@@ -45,7 +50,7 @@ def print_help():
 -t  --tempdir XXX   Set the temp directory to XXX (standard: ./tmp)
 -f  --filedir XXX   Set the file directory to XXX (standard: ./files""")
 
-def fetch_datasets(filedir, tempdir):
+def fetch_datasets(filedir, tempdir, unify=True):
     clear_all()
     logging.info("Download Data and perform initial processing")
     max_suffix_length = 0
@@ -56,7 +61,10 @@ def fetch_datasets(filedir, tempdir):
         max_suffix_length = _print_progress_bar(idx *2 +1, len(datasets.get_datasets()) *2, "Process " + dataset.name, max_suffix_length)
         dataset.valid_hash(file)
         dataset.process(file, os.path.join(filedir, dataset.name), tempdir)
-        dataset.unify_format(os.path.join(filedir, dataset.name))
+        if unify:
+            #x = threading.Thread(target=dataset.unify_format, args=(os.path.join(filedir, dataset.name),))
+            #x.start()
+            dataset.unify_format(os.path.join(filedir, dataset.name))
     _print_progress_bar(len(datasets.get_datasets()), len(datasets.get_datasets()), "Done", max_suffix_length)
     logging.info("Done fetching Datasets")
 

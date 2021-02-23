@@ -38,8 +38,6 @@ class Qian2019(dataset.Dataset):
             df = df.fillna({"hate_speech_idx":"[]"})
             clean_data = []
             for i,row in df.iterrows():
-                if i % 500 == 0:
-                    print(i)
                 for idx,comment in enumerate(row["text"].split("\n")):
                     labels = []
                     if idx+1 in json.loads(row["hate_speech_idx"]):

@@ -5,6 +5,7 @@ import pandas as pd
 import json
 from io import BytesIO
 from urllib.request import urlopen
+from twarc import Twarc
 
 def download_from(url : str, destination_folder : str, file_name : str = "downloaded.file") -> str:
     with urlopen(url) as response:
@@ -47,3 +48,35 @@ def unzip_file(file_name : str):
     with zipfile.ZipFile(file_name) as zip_file:
         zip_file.extractall(extraction_dir)
     return extraction_dir
+
+def clean_csv(file_name : str, names : [str] = None ) -> str:
+    new_file = file_name + "_clean"
+    df = pd.read_csv(file_name, names=names)
+    df.to_csv(new_file, index=False)
+    return new_file
+
+def download_tweets_for_csv(file_name : str, column : str) -> str:
+    def hydrate(row, translation):
+        if row[column] in translation:
+            row["text"] = translation[row[column]]
+            row = row.drop(column)
+            return row
+        return None
+
+    new_file = file_name + "_with_tweets"
+    df = pd.read_csv(file_name)
+    with open("config.json", "r") as config:
+        api_data = json.load(config)
+    t = Twarc(
+        api_data["consumer_key"],
+        api_data["consumer_secret"],
+        api_data["access_token"],
+        api_data["access_token_secret"]
+        )
+    print(df)
+    translation = {}
+    for tweet in t.hydrate(df[column]):
+        translation[tweet["id"]] = tweet["full_text"]
+    df = df.apply(hydrate, axis=1, args=(translation,)).dropna()
+    df.to_csv(new_file, index=False)
+    return new_file
