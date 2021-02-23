@@ -20,7 +20,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 |  8 | Twitter API required | Offensive Language and Hate Speech Detection for Danish |  |
 |  9 | Done (v3) | Automated Hate Speech Detection and the Problem of Offensive Language | Davidson2017 |
 | 10 | Done (v3) | Hate Speech Dataset from a White Supremacy Forum | Gibert2018 |
-| 11 | Twitter API required | Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter |  |
+| 11 | Done (v3) | Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter | Waseem2016 |
 | 12 | Done (v3) | Detecting Online Hate Speech Using Context Aware Models | Gao2018 |
 | 13 | Twitter API required | Are You a Racist or Am I Seeing Things? Annotator Influence on Hate Speech Detection on Twitter |  |
 | 14 | Twitter API required | When Does a Compliment Become Sexist? Analysis and Classification of Ambivalent Sexism Using Twitter Data |  |
