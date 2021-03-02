@@ -62,6 +62,20 @@ def clean_csv(file_name : str, names : [str] = None, sep : str = ',' ) -> str:
     df.to_csv(new_file, index=False)
     return new_file
 
+def join_csvs(file1 : str, column1 : str, file2 : str, column2 : str) -> str:
+    new_file = file1 + "_joined"
+    df1 = pd.read_csv(file1)
+    df2 = pd.read_csv(file2)
+    df = df1.merge(df2, left_on=column1, right_on=column2)
+    df.to_csv(new_file, index=False)
+    return new_file
+
+def drop_duplicates(file_name : str, columns : [str]) -> str:
+    new_file = file_name + "_dropped"
+    df = pd.read_csv(file_name)
+    df = df.drop_duplicates(columns)
+    df.to_csv(new_file, index=False)
+    return new_file
 
 def merge_csvs(files : dict) -> str:
     """Merge multiple CSV files into one.

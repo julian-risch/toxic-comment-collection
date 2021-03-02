@@ -37,18 +37,18 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 23 | Registration required | SemEval-2019 Task 5: Multilingual Detection of Hate Speech AgainstImmigrants and Women in Twitter |  |
 | 24 | Done (v3) | Peer to Peer Hate: Hate Speech Instigators and Their Targets | ElSherief2018 |
 | 25 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019en |
-| 26 |  |  |  |
-| 27 |  |  |  |
-| 28 |  |  |  |
-| 29 |  |  |  |
-| 30 |  |  |  |
-| 31 |  |  |  |
+| 26 | Dataset unavailable | Large Scale Crowdsourcing and Characterization of Twitter Abusive Behavior |  |
+| 27 | E-Mail required | A Large Labeled Corpus for Online Harassment Research |  |
+| 28 | Postponed (figure out where datasets are) | Ex Machina: Personal Attacks Seen at Scale, Personal attacks |  |
+| 29 | Postponed (figure out where datasets are) | Ex Machina: Personal Attacks Seen at Scale, Toxicity |  |
+| 30 | Postponed (sql file) | Detecting cyberbullying in online communities (World of Warcraft) |  |
+| 31 | Postponed (sql file) | Detecting cyberbullying in online communities (League of Legends) |  |
 | 32 |  |  |  |
 | 33 |  |  |  |
 | 34 |  |  |  |
 | 35 |  |  |  |
 | 36 |  |  |  |
-| 37 |  |  |  |
+| 37 | Done (v3) | Detecting Offensive Statements Towards Foreigners in Social Media | Bretschneider2017 |
 | 38 |  |  |  |
 | 39 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019ger |
 | 40 |  |  |  |
