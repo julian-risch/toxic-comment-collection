@@ -36,7 +36,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 22 | Uses OLID Dataset | Predicting the Type and Target of Offensive Posts in Social Media |  |
 | 23 | Registration required | SemEval-2019 Task 5: Multilingual Detection of Hate Speech AgainstImmigrants and Women in Twitter |  |
 | 24 | Done (v3) | Peer to Peer Hate: Hate Speech Instigators and Their Targets | ElSherief2018 |
-| 25 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019 |
+| 25 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019en |
 | 26 |  |  |  |
 | 27 |  |  |  |
 | 28 |  |  |  |
@@ -50,7 +50,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 36 |  |  |  |
 | 37 |  |  |  |
 | 38 |  |  |  |
-| 39 |  |  |  |
+| 39 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019ger |
 | 40 |  |  |  |
 | 41 |  |  |  |
 | 42 |  |  |  |
@@ -58,7 +58,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 44 |  |  |  |
 | 45 |  |  |  |
 | 46 |  |  |  |
-| 47 |  |  |  |
+| 47 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019hind |
 | 48 |  |  |  |
 | 49 |  |  |  |
 | 50 |  |  |  |

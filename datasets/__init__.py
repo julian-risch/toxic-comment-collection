@@ -11,6 +11,8 @@ from . import waseem2016
 from . import jha2017
 from . import elsherief2018
 from . import mandl2019en
+from . import mandl2019ger
+from . import mandl2019hind
 
 def get_datasets():
     return [
@@ -26,5 +28,7 @@ def get_datasets():
         waseem2016.Waseem2016(),
         jha2017.Jha2017(),
         elsherief2018.Elsherief2018(),
-        mandl2019en.Mandl2019en()
+        mandl2019en.Mandl2019en(),
+        mandl2019ger.Mandl2019ger()
+        mandl2019hind.Mandl2019hind()
     ]
