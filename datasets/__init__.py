@@ -9,6 +9,8 @@ from . import chung2019
 from . import qian2019
 from . import waseem2016
 from . import jha2017
+from . import elsherief2018
+from . import mandl2019en
 
 def get_datasets():
     return [
@@ -22,5 +24,7 @@ def get_datasets():
         chung2019.Chung2019(),
         qian2019.Qian2019(),
         waseem2016.Waseem2016(),
-        jha2017.Jha2017()
+        jha2017.Jha2017(),
+        elsherief2018.Elsherief2018(),
+        mandl2019en.Mandl2019en()
     ]

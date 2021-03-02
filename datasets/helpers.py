@@ -52,23 +52,45 @@ def unzip_file(file_name : str):
 def add_column(file_name : str, column_name : str, column_value) -> str:
     new_file = file_name + "_new_column"
     df = pd.read_csv(file_name)
-    df.insert(loc=0, column=column_name, value=[column_value] * df.count().tweet_id)
+    df.insert(loc=0, column=column_name, value=[column_value] * df.count().max())
     df.to_csv(new_file, index=False)
     return new_file
 
-def clean_csv(file_name : str, names : [str] = None ) -> str:
+def clean_csv(file_name : str, names : [str] = None, sep : str = ',' ) -> str:
     new_file = file_name + "_clean"
-    df = pd.read_csv(file_name, names=names)
+    df = pd.read_csv(file_name, names=names, sep=sep)
     df.to_csv(new_file, index=False)
     return new_file
+
+
+def merge_csvs(files : dict) -> str:
+    """Merge multiple CSV files into one.
+
+    Keyword arguments:
+    files -- dictionary with the filename as a key and a list of attributes that will be added in a label column
+    """
+    new_file = list(files.keys())[0] + "_merged"
+
+    merged_df = pd.DataFrame()
+    for file in files:
+        df = pd.read_csv(file)
+        if len(files[file]):
+            df.insert(loc=0, column="label", value=[files[file]] * df.count().max())
+        merged_df = merged_df.append(df)
+    merged_df.to_csv(new_file, index=False)
+    return new_file
+
 
 def download_tweets_for_csv(file_name : str, column : str) -> str:
-    def hydrate(row, translation):
+    def hydrate(row, translation, columns):
         if row[column] in translation:
             row["text"] = translation[row[column]]
             row = row.drop(column)
             return row
-        return None
+        else:
+            ser = pd.Series(index=columns)
+            ser = ser.drop(column)
+            return ser
 
     new_file = file_name + "_with_tweets"
     df = pd.read_csv(file_name)
@@ -84,6 +106,6 @@ def download_tweets_for_csv(file_name : str, column : str) -> str:
     translation = {}
     for tweet in t.hydrate(df[column]):
         translation[tweet["id"]] = tweet["full_text"]
-    df = df.apply(hydrate, axis=1, args=(translation,)).dropna()
+    df = df.apply(hydrate, axis=1, args=(translation,df.columns)).dropna(how='all')
     df.to_csv(new_file, index=False)
     return new_file

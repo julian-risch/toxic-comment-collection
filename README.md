@@ -32,11 +32,11 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 18 | Done (v3) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Gab) | Qian2019 |
 | 19 | Done (v3) | A Benchmark Dataset for Learning to Intervene in Online Hate Speech (Reddit) | Qian2019 |
 | 20 | Done (v3) | Multilingual and Multi-Aspect Hate Speech Analysis (English) | Ousidhoum2019 |
-| 21 |  |  |  |
-| 22 |  |  |  |
-| 23 |  |  |  |
-| 24 |  |  |  |
-| 25 |  |  |  |
+| 21 | Postponed (includes pictures) | Exploring Hate Speech Detection in Multimodal Publications |  |
+| 22 | Uses OLID Dataset | Predicting the Type and Target of Offensive Posts in Social Media |  |
+| 23 | Registration required | SemEval-2019 Task 5: Multilingual Detection of Hate Speech AgainstImmigrants and Women in Twitter |  |
+| 24 | Done (v3) | Peer to Peer Hate: Hate Speech Instigators and Their Targets | ElSherief2018 |
+| 25 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019 |
 | 26 |  |  |  |
 | 27 |  |  |  |
 | 28 |  |  |  |
