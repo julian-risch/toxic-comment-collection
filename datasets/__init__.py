@@ -14,6 +14,8 @@ from . import mandl2019en
 from . import mandl2019ger
 from . import mandl2019hind
 from . import bretschneider2017
+from . import ross2017
+from . import wiegand2018
 
 def get_datasets():
     return [
@@ -32,5 +34,7 @@ def get_datasets():
         mandl2019en.Mandl2019en(),
         mandl2019ger.Mandl2019ger(),
         mandl2019hind.Mandl2019hind(),
-        bretschneider2017.Bretschneider2017()
+        bretschneider2017.Bretschneider2017(),
+        ross2017.Ross2017(),
+        wiegand2018.Wiegand2018(),
     ]

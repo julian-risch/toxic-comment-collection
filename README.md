@@ -43,16 +43,16 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 29 | Postponed (figure out where datasets are) | Ex Machina: Personal Attacks Seen at Scale, Toxicity |  |
 | 30 | Postponed (sql file) | Detecting cyberbullying in online communities (World of Warcraft) |  |
 | 31 | Postponed (sql file) | Detecting cyberbullying in online communities (League of Legends) |  |
-| 32 |  |  |  |
-| 33 |  |  |  |
-| 34 |  |  |  |
-| 35 |  |  |  |
-| 36 |  |  |  |
+| 32 | E-Mail required | A Qality Type-aware Annotated Corpus and Lexicon for Harassment Research | Rezvan2018 |
+| 33 | Postponed (figure out where datasets are) | Ex Machina: Personal Attacks Seen at Scale, Aggression and Friendliness |  |
+| 34 | Done (v3) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
+| 35 | Done (v3) | Multilingual and Multi-Aspect Hate Speech Analysis (English) | Ousidhoum2019 |
+| 36 | Done (v3) | Measuring the Reliability of Hate Speech Annotations:The Case of the European Refugee Crisis | Ross2017 |
 | 37 | Done (v3) | Detecting Offensive Statements Towards Foreigners in Social Media | Bretschneider2017 |
-| 38 |  |  |  |
+| 38 | Done (v3) | Overview of the GermEval 2018 Shared Task on the Identification of Offensive Language | Wiegand2018 |
 | 39 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019ger |
-| 40 |  |  |  |
-| 41 |  |  |  |
+| 40 | Website Down | Deep Learning for User Comment Moderation, Flagged Comments |  |
+| 41 | Website Down | Deep Learning for User Comment Moderation, Flagged Comments |  |
 | 42 |  |  |  |
 | 43 |  |  |  |
 | 44 |  |  |  |
@@ -65,7 +65,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 51 |  |  |  |
 | 52 |  |  |  |
 | 53 |  |  |  |
-| 54 |  |  |  |
+| 54 | Done (v3) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
 | 55 |  |  |  |
 | 56 |  |  |  |
 | 57 |  |  |  |
