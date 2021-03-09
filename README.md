@@ -54,8 +54,8 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 40 | Website Down | Deep Learning for User Comment Moderation, Flagged Comments |  |
 | 41 | Website Down | Deep Learning for User Comment Moderation, Flagged Comments |  |
 | 42 | Done (v3) | Offensive Language Identification in Greek | Pitenis2020 |
-| 43 |  |  |  |
-| 44 |  |  |  |
+| 43 | Application required | Aggression-annotated Corpus of Hindi-English Code-mixed Data |  |
+| 44 | Application required | Aggression-annotated Corpus of Hindi-English Code-mixed Data |  |
 | 45 |  |  |  |
 | 46 |  |  |  |
 | 47 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019hind |
