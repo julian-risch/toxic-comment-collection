@@ -56,13 +56,29 @@ def add_column(file_name : str, column_name : str, column_value) -> str:
     df.to_csv(new_file, index=False)
     return new_file
 
-def clean_csv(file_name : str, names : [str] = None, sep : str = ',' ) -> str:
+def clean_csv(file_name : str, names : [str] = None, header : int = 'infer', sep : str = ',' ) -> str:
+    """ Loads CSV into Dataframe and exports it as CSV again to archive a clean CSV with standard seperators. Can be used to add column names.
+        
+        Keyword arguments:
+        file_name -- path to the file
+        names -- list that contains the names for the columns
+        header -- set to 0 if an existing header should be overwritten
+        sep -- seperator of the CSV file
+    """
     new_file = file_name + "_clean"
-    df = pd.read_csv(file_name, names=names, sep=sep)
+    df = pd.read_csv(file_name, names=names, sep=sep, header=header)
     df.to_csv(new_file, index=False)
     return new_file
 
 def join_csvs(file1 : str, column1 : str, file2 : str, column2 : str) -> str:
+    """Joins two CSVs on a given column
+
+    Keyword arguments:
+    file1 -- path of the first CSV
+    column1 -- name of the column to join on in file1
+    file2 -- path of the second CSV
+    column2 -- name of the column to join on in file2 
+    """
     new_file = file1 + "_joined"
     df1 = pd.read_csv(file1)
     df2 = pd.read_csv(file2)
