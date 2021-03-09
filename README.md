@@ -57,7 +57,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 43 | Application required | Aggression-annotated Corpus of Hindi-English Code-mixed Data |  |
 | 44 | Application required | Aggression-annotated Corpus of Hindi-English Code-mixed Data |  |
 | 45 | Done (v3) | Did you offend me? Classification of Offensive Tweets in Hinglish Language | Mathur2018 |
-| 46 |  |  |  |
+| 46 | Dataset not available | A Dataset of Hindi-English Code-Mixed Social Media Text for HateSpeech Detection |  |
 | 47 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019hind |
 | 48 |  |  |  |
 | 49 |  |  |  |
