@@ -140,9 +140,10 @@ cython_debug/
 # VS Code
 .vscode/
 
-# folder created by the script
+# folders and files created by the script
 files/
 tmp/
+statistics.txt
 
 # configuration files
 config.json
