@@ -51,7 +51,7 @@ SOFTWARE."""
             labels.append("offensive")
         if row["class"] == 2:
             labels.append("normal")
-        row["lables"] = labels
+        row["labels"] = labels
         row = row.drop(["Unnamed: 0","count","hate_speech","offensive_language","neither","class", "tweet"])
         return row
         

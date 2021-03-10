@@ -26,7 +26,7 @@ class Chung2019(dataset.Dataset):
         b = pd.DataFrame(a['conan'])
         tmp_file_path = tmp_file_path + ".csv"
         b.to_csv(tmp_file_path, index=False)
-        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "chung2019en.csv"))
+        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "chung2019.csv"))
 
     @classmethod
     def unify_row(cls, row):

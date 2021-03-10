@@ -3,6 +3,7 @@ import shutil
 import zipfile
 import pandas as pd
 import json
+import csv
 from io import BytesIO
 from urllib.request import urlopen
 from twarc import Twarc
@@ -105,7 +106,7 @@ def merge_csvs(files : dict) -> str:
     for file in files:
         df = pd.read_csv(file)
         if len(files[file]):
-            df.insert(loc=0, column="label", value=[files[file]] * df.count().max())
+            df.insert(loc=0, column="labels", value=[files[file]] * df.count().max())
         merged_df = merged_df.append(df)
     merged_df.to_csv(new_file, index=False)
     return new_file
@@ -132,10 +133,9 @@ def download_tweets_for_csv(file_name : str, column : str) -> str:
         api_data["access_token"],
         api_data["access_token_secret"]
         )
-    print(df)
     translation = {}
     for tweet in t.hydrate(df[column]):
         translation[tweet["id"]] = tweet["full_text"]
     df = df.apply(hydrate, axis=1, args=(translation,df.columns)).dropna(how='all')
-    df.to_csv(new_file, index=False)
+    df.to_csv(new_file, index=False, quoting=csv.QUOTE_NONNUMERIC)
     return new_file

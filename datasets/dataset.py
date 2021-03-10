@@ -3,6 +3,7 @@ from hashlib import sha256
 from . import helpers
 import pandas as pd
 import os
+import csv
 
 import logging
 
@@ -69,5 +70,5 @@ class Dataset(ABC):
         for file in cls.files:
             df = pd.read_csv(os.path.join(dataset_folder, file["name"]))
             df = df.apply(cls.unify_row, axis=1)
-            df.to_csv(os.path.join(dataset_folder, file["name"]), index_label="id")
+            df.to_csv(os.path.join(dataset_folder, file["name"]), index_label="id", quoting=csv.QUOTE_NONNUMERIC)
         

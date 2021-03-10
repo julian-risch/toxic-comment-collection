@@ -4,6 +4,7 @@ import shutil
 import sys
 import getopt
 import logging
+import statisitics_generator
 
 TEMPDIR = "./tmp"
 FILEDIR = "./files"
@@ -12,7 +13,7 @@ logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
 
 def main(args):
     try:
-        arguments = dict(getopt.getopt(args, "-r -? -o -t: -f:", ['reset', 'help', 'original', 'tempdir', 'filedir'])[0])
+        arguments = dict(getopt.getopt(args, "-r -? -o -s -t: -f:", ['reset', 'help', 'original', 'statistics', 'tempdir', 'filedir'])[0])
     except:
         logging.error("Invalid argument!")
         print_help()
@@ -27,6 +28,10 @@ def main(args):
         tempdir = _parse_argument(arguments, "--filedir", "-f")
     else: 
         filedir = FILEDIR
+
+    if ("--statistics" in arguments or "-s" in arguments):
+        generate_statistics(filedir)
+        exit()
 
     if ("--help" in arguments or "-?" in arguments):
         print_help()
@@ -44,9 +49,18 @@ def print_help():
     print("""Usage: python3 main.py [-r][-?]
     
 -r  --reset         Reset all existing files, deletes everything in folder 'tmp' and 'files'
+
 -?  --help          Show this help
+
 -t  --tempdir XXX   Set the temp directory to XXX (standard: ./tmp)
--f  --filedir XXX   Set the file directory to XXX (standard: ./files""")
+
+-f  --filedir XXX   Set the file directory to XXX (standard: ./files)
+
+-o  --original      Download the datasets but don't process them
+
+-s  --statistcs     Generates statistics about the downloaded datasets. Make sure to run
+                    the script without the -s parameter before to download the datasets.
+                    Does not work with unprocessed data (-o)""")
 
 def fetch_datasets(filedir, tempdir, unify=True):
     clear_all()
@@ -63,6 +77,10 @@ def fetch_datasets(filedir, tempdir, unify=True):
             dataset.unify_format(os.path.join(filedir, dataset.name))
     _print_progress_bar(len(datasets.get_datasets()), len(datasets.get_datasets()), "Done", max_suffix_length)
     logging.info("Done fetching Datasets")
+
+def generate_statistics(filedir):
+    sg = statisitics_generator.Statisitics_generator(filedir)
+    sg.generate()
 
 def clear_all():
     logging.info("Clearing all existing Data")
