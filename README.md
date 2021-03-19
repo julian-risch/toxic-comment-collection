@@ -62,7 +62,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 48 | Done (v3) | Hate Speech Detection in the Indonesian Language: A Dataset and Preliminary Study | Alfina2018 |
 | 49 | Done (v3) | Multi-Label Hate Speech and Abusive Language Detection in Indonesian Twitter | Ibrohim2019 |
 | 50 | Done (v3) | A Dataset and Preliminaries Study for Abusive Language Detection in Indonesian Social Media | Ibrohim2018 |
-| 51 |  |  |  |
+| 51 | Done (v3) | An Italian Twitter Corpus of Hate Speech against Immigrants | Sanguinetti2018 |
 | 52 |  |  |  |
 | 53 |  |  |  |
 | 54 | Done (v3) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
