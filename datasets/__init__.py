@@ -19,6 +19,8 @@ from . import wiegand2018
 from . import pitenis2020
 from . import mathur2018
 from . import alfina2017
+from . import ibrohim2019
+from . import ibrohim2018
 
 def get_datasets():
     return [
@@ -43,4 +45,6 @@ def get_datasets():
         pitenis2020.Pitenis2020(),
         mathur2018.Mathur2018(),
         alfina2017.Alfina2017(),
+        ibrohim2019.Ibrohim2019(),
+        ibrohim2018.Ibrohim2018(),
     ]

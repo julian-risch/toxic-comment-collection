@@ -59,9 +59,9 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 45 | Done (v3) | Did you offend me? Classification of Offensive Tweets in Hinglish Language | Mathur2018 |
 | 46 | Dataset not available | A Dataset of Hindi-English Code-Mixed Social Media Text for HateSpeech Detection |  |
 | 47 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019hind |
-| 48 |  |  |  |
-| 49 |  |  |  |
-| 50 |  |  |  |
+| 48 | Done (v3) | Hate Speech Detection in the Indonesian Language: A Dataset and Preliminary Study | Alfina2018 |
+| 49 | Done (v3) | Multi-Label Hate Speech and Abusive Language Detection in Indonesian Twitter | Ibrohim2019 |
+| 50 | Done (v3) | A Dataset and Preliminaries Study for Abusive Language Detection in Indonesian Social Media | Ibrohim2018 |
 | 51 |  |  |  |
 | 52 |  |  |  |
 | 53 |  |  |  |
