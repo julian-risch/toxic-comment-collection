@@ -63,18 +63,18 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 49 | Done (v3) | Multi-Label Hate Speech and Abusive Language Detection in Indonesian Twitter | Ibrohim2019 |
 | 50 | Done (v3) | A Dataset and Preliminaries Study for Abusive Language Detection in Indonesian Social Media | Ibrohim2018 |
 | 51 | Done (v3) | An Italian Twitter Corpus of Hate Speech against Immigrants | Sanguinetti2018 |
-| 52 |  |  |  |
-| 53 |  |  |  |
+| 52 | Application required | Overview of the EVALITA 2018 Hate Speech Detection Task (Facebook) |  |
+| 53 | Application required | Overview of the EVALITA 2018 Hate Speech Detection Task (Twitter) |  |
 | 54 | Done (v3) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
-| 55 |  |  |  |
-| 56 |  |  |  |
-| 57 |  |  |  |
-| 58 |  |  |  |
-| 59 |  |  |  |
-| 60 |  |  |  |
+| 55 | XML import required | Creating a WhatsApp Dataset to Study Pre-teen Cyberbullying |  |
+| 56 | Files not found | Results of the PolEval 2019 Shared Task 6:First Dataset and Open Shared Task for Automatic Cyberbullying Detection in Polish Twitter |  |
+| 57 | Done (v3) | A Hierarchically-Labeled Portuguese Hate Speech Dataset | Fortuna2019 |
+| 58 | ARFF file format | Offensive Comments in the Brazilian Web: A Dataset and Baseline Results |  |
+| 59 | Encrypted | Datasets of Slovene and Croatian Moderated News Comments |  |
+| 60 | Application required | Overview of MEX-A3T at IberEval 2018: Authorship and Aggressiveness Analysis in Mexican Spanish Tweets |  |
 | 61 |  |  |  |
-| 62 |  |  |  |
-| 63 |  |  |  |
+| 62 | Data not found | hatEval, SemEval-2019 Task 5: Multilingual Detection of Hate Speech Against Immigrants and Women in Twitter (Spanish) |  |
+| 63 | Done (v3) | A Corpus of Turkish Offensive Language on Social Media | Coltekin2019 |
 
 ## Next Steps
 * 16.02. request Twitter API access

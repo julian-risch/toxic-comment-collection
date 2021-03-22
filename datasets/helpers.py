@@ -57,7 +57,7 @@ def add_column(file_name : str, column_name : str, column_value) -> str:
     df.to_csv(new_file, index=False)
     return new_file
 
-def clean_csv(file_name : str, names : [str] = None, header : int = 'infer', sep : str = ',' ) -> str:
+def clean_csv(file_name : str, names : [str] = None, header : int = 'infer', sep : str = ',', dtype : dict = None ) -> str:
     """ Loads CSV into Dataframe and exports it as CSV again to archive a clean CSV with standard seperators. Can be used to add column names.
         
         Keyword arguments:
@@ -65,10 +65,11 @@ def clean_csv(file_name : str, names : [str] = None, header : int = 'infer', sep
         names -- list that contains the names for the columns
         header -- set to 0 if an existing header should be overwritten
         sep -- seperator of the CSV file
+        dtype -- dict containing the data types of the columns
     """
     new_file = file_name + "_clean"
-    df = pd.read_csv(file_name, names=names, sep=sep, header=header)
-    df.to_csv(new_file, index=False)
+    df = pd.read_csv(file_name, names=names, sep=sep, header=header, dtype=dtype)
+    df.to_csv(new_file, index=False, quoting=csv.QUOTE_NONNUMERIC)
     return new_file
 
 def join_csvs(file1 : str, column1 : str, file2 : str, column2 : str) -> str:
@@ -114,7 +115,7 @@ def merge_csvs(files : dict) -> str:
 
 def download_tweets_for_csv(file_name : str, column : str) -> str:
     def hydrate(row, translation, columns):
-        if row[column] in translation:
+        if str(row[column]) in translation:
             row["text"] = translation[row[column]]
             row = row.drop(column)
             return row
@@ -124,7 +125,7 @@ def download_tweets_for_csv(file_name : str, column : str) -> str:
             return ser
 
     new_file = file_name + "_with_tweets"
-    df = pd.read_csv(file_name)
+    df = pd.read_csv(file_name, dtype={column: str})
     with open("config.json", "r") as config:
         api_data = json.load(config)
     t = Twarc(
@@ -135,7 +136,7 @@ def download_tweets_for_csv(file_name : str, column : str) -> str:
         )
     translation = {}
     for tweet in t.hydrate(df[column]):
-        translation[tweet["id"]] = tweet["full_text"]
+        translation[str(tweet["id"])] = tweet["full_text"]
     df = df.apply(hydrate, axis=1, args=(translation,df.columns)).dropna(how='all')
     df.to_csv(new_file, index=False, quoting=csv.QUOTE_NONNUMERIC)
     return new_file
