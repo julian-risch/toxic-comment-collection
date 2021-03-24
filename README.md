@@ -12,7 +12,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 (can be accessed via : http://ckan.hatespeechdata.com)
 |  # | State | Name | Class |
 |  - |:-----:| ---- | ----- |
-|  1 | Files not found | Are They our Brothers? Analysis and Detection of Religious Hate Speech in the Arabic Twittersphere |  |
+|  1 | Done (v3) | Are They our Brothers? Analysis and Detection of Religious Hate Speech in the Arabic Twittersphere | Albadi2018 |
 |  2 | Done (v3) | Multilingual and Multi-Aspect Hate Speech Analysis (Arabic) | Ousidhoum2019 |
 |  3 | Done (v3) | L-HSAB: A Levantine Twitter Dataset for Hate Speech and Abusive Language | mulki2019 |
 |  4 | Done (v3) | Abusive Language Detection on Arabic Social Media (Twitter) | Mubarak2017twitter |
