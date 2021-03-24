@@ -23,13 +23,13 @@ a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA."""
     @classmethod
     def replace_csv_entry_with_filecontents(cls, row, directory):
         fid = row["file_id"]
-        with open(os.path.join(directory, "all_files", fid + ".txt"), 'r') as f:
+        with open(os.path.join(directory, "all_files", fid + ".txt"), 'r', encoding="utf-8") as f:
             row["text"] = "\n".join(f.readlines())
             return row
 
     @classmethod
     def merge_txt_to_csv(cls, directory):
-        df = pd.read_csv(os.path.join(directory, "annotations_metadata.csv"))
+        df = pd.read_csv(os.path.join(directory, "annotations_metadata.csv"), encoding="utf-8")
         df = df.apply(cls.replace_csv_entry_with_filecontents, axis=1, args=(directory,))
         output_file = os.path.join(directory, cls.name + ".csv")
         df.to_csv(output_file)
