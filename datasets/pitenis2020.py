@@ -29,11 +29,6 @@ class Pitenis2020(dataset.Dataset):
     @classmethod
     def unify_row(cls, row):
         row["text"] = row["tweet"]
-        labels = []
-        if row["category"] == "NOT":
-            labels.append("not")
-        if row["category"] == "OFF":
-            labels.append("offensive")
-        row["labels"] = labels
+        row["labels"] = [row["category"]]
         row = row.drop(["lid", "rid", "tweet", "category"])
         return row

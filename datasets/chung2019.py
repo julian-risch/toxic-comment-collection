@@ -38,10 +38,7 @@ class Chung2019(dataset.Dataset):
         return row
 
     @classmethod
-    def unify_format(cls, dataset_folder):
-        for file in cls.files:
-            df = pd.read_csv(os.path.join(dataset_folder, file["name"]))
-            df = df.apply(cls.unify_row, axis=1)
-            df = df.drop_duplicates(subset=["text"])
-            df.to_csv(os.path.join(dataset_folder, file["name"]), index_label="id")
+    def unify_format(cls, df):
+        df = df.apply(cls.unify_row, axis=1)
+        return df.drop_duplicates(subset=["text"])
         

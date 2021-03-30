@@ -129,10 +129,10 @@ def download_tweets_for_csv(file_name : str, column : str) -> str:
     with open("config.json", "r") as config:
         api_data = json.load(config)
     t = Twarc(
-        api_data["consumer_key"],
-        api_data["consumer_secret"],
-        api_data["access_token"],
-        api_data["access_token_secret"]
+        api_data["twitter"]["consumer_key"],
+        api_data["twitter"]["consumer_secret"],
+        api_data["twitter"]["access_token"],
+        api_data["twitter"]["access_token_secret"]
         )
     translation = {}
     for tweet in t.hydrate(df[column]):

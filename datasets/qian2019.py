@@ -32,17 +32,15 @@ class Qian2019(dataset.Dataset):
         helpers.copy_file(os.path.join(tmp_file_path, "A-Benchmark-Dataset-for-Learning-to-Intervene-in-Online-Hate-Speech-master/data/reddit.csv"), os.path.join(dataset_folder, "qian2019en_reddit.csv"))
 
     @classmethod
-    def unify_format(cls, dataset_folder):
-        for file in cls.files:
-            df = pd.read_csv(os.path.join(dataset_folder, file["name"]))
-            df = df.fillna({"hate_speech_idx":"[]"})
-            clean_data = []
-            for i,row in df.iterrows():
-                for idx,comment in enumerate(row["text"].split("\n")):
-                    labels = []
-                    if idx+1 in json.loads(row["hate_speech_idx"]):
-                        labels.append("hate")
-                    if comment:
-                        clean_data.append({"text": comment, "labels": labels})
-            new_df = pd.DataFrame(clean_data)
-            new_df.to_csv(os.path.join(dataset_folder, file["name"]), index_label="id")
+    def unify_format(cls, df):
+        df = df.fillna({"hate_speech_idx":"[]"})
+        clean_data = []
+        for i,row in df.iterrows():
+            for idx,comment in enumerate(row["text"].split("\n")):
+                labels = []
+                if idx+1 in json.loads(row["hate_speech_idx"]):
+                    labels.append("hate")
+                if comment:
+                    clean_data.append({"text": comment, "labels": labels})
+        return pd.DataFrame(clean_data)
+           

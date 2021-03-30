@@ -4,6 +4,7 @@ from . import helpers
 import pandas as pd
 import os
 import csv
+import json
 
 import logging
 
@@ -66,9 +67,29 @@ class Dataset(ABC):
         return row
 
     @classmethod
-    def unify_format(cls, dataset_folder):
+    def translate_row(cls, row, translation):
+        translated_labels = []
+        for i in row["labels"]:
+            translated_labels.extend(translation.get(i, [i]))
+        row["labels"] = translated_labels
+        return row
+
+    @classmethod
+    def unify(cls, dataset_folder, translate_labels):
+        if (os.path.isfile("config.json")):
+            with open("config.json", "r") as f:
+                config = json.load(f)
         for file in cls.files:
             df = pd.read_csv(os.path.join(dataset_folder, file["name"]))
-            df = df.apply(cls.unify_row, axis=1)
-            df.to_csv(os.path.join(dataset_folder, file["name"]), index_label="id", quoting=csv.QUOTE_NONNUMERIC)
-        
+            df = cls.unify_format(df)
+            if (translate_labels and config and file["name"] in config["datasets"]):
+                df = cls.translate_labels(df, config["datasets"][file["name"]]["translation"])
+            df.to_csv(os.path.join(dataset_folder, file["name"]), index_label="id", quoting=csv.QUOTE_NONNUMERIC, sep="\t")
+
+    @classmethod
+    def translate_labels(cls, df, translation):
+        return df.apply(cls.translate_row, axis=1, args=(translation,))
+
+    @classmethod
+    def unify_format(cls, df):
+        return df.apply(cls.unify_row, axis=1) 

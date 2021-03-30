@@ -9,10 +9,11 @@ class Statisitics_generator:
     def __init__(self, filedir):
         self.filedir = filedir
 
-    def generate(self, output_file="statistics.txt"):
+    def generate(self, output_file=None):
         ds_data = self._collect_data()
         overall_data = self._calculate_overall_data(ds_data)
-        self._generate_output(output_file, ds_data, overall_data)
+        if output_file:
+            self._generate_output(output_file, ds_data, overall_data)
         return (ds_data, overall_data)
 
     def _generate_output(self, output_file, dataset_data, overall_data):
@@ -23,7 +24,6 @@ class Statisitics_generator:
             str += i + "\n"
             str += self._generate_table(dataset_data[i], 4)
             str += "\n"
-
 
         with open(output_file, "w") as f:
             f.write(str)
@@ -53,7 +53,6 @@ class Statisitics_generator:
         files = {}
         for idx, dataset in enumerate(datasets.get_datasets()):
             for file in dataset.files:
-                print(file["name"])
                 file_path = os.path.join(self.filedir, dataset.name, file["name"])
                 if (not os.path.isfile(file_path)):
                     continue
