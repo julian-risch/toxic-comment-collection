@@ -19,7 +19,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 |  5 | Done (v3) | Abusive Language Detection on Arabic Social Media (Al Jazeera) | Mubarak2017aljazeera|
 |  6 | Postponed (OneDrive) | Dataset Construction for the Detection of Anti-Social Behaviour in Online Communication in Arabic |  |
 |  7 | Postponed (Login Required) | Datasets of Slovene and Croatian Moderated News Comments |  |
-|  8 | Twitter API required | Offensive Language and Hate Speech Detection for Danish |  |
+|  8 | tar.bz2 file | Offensive Language and Hate Speech Detection for Danish |  |
 |  9 | Done (v3) | Automated Hate Speech Detection and the Problem of Offensive Language | Davidson2017 |
 | 10 | Done (v3) | Hate Speech Dataset from a White Supremacy Forum | Gibert2018 |
 | 11 | Done (v3) | Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter | Waseem2016 |
@@ -34,17 +34,17 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 20 | Done (v3) | Multilingual and Multi-Aspect Hate Speech Analysis (English) | Ousidhoum2019 |
 | 21 | Postponed (includes pictures) | Exploring Hate Speech Detection in Multimodal Publications |  |
 | 22 | Uses OLID Dataset | Predicting the Type and Target of Offensive Posts in Social Media |  |
-| 23 | Registration required | SemEval-2019 Task 5: Multilingual Detection of Hate Speech AgainstImmigrants and Women in Twitter |  |
+| 23 | Done (v3) | SemEval-2019 Task 5: Multilingual Detection of Hate Speech AgainstImmigrants and Women in Twitter | Basile2019 |
 | 24 | Done (v3) | Peer to Peer Hate: Hate Speech Instigators and Their Targets | ElSherief2018 |
 | 25 | Done (v3) | Overview of the HASOC track at FIRE 2019: Hate Speech and Offensive Content Identification in Indo-European Languages | Mandl2019en |
-| 26 | Dataset unavailable | Large Scale Crowdsourcing and Characterization of Twitter Abusive Behavior |  |
+| 26 | Done (v3) | Large Scale Crowdsourcing and Characterization of Twitter Abusive Behavior | Founta2018 |
 | 27 | E-Mail required | A Large Labeled Corpus for Online Harassment Research |  |
-| 28 | Postponed (figure out where datasets are) | Ex Machina: Personal Attacks Seen at Scale, Personal attacks |  |
-| 29 | Postponed (figure out where datasets are) | Ex Machina: Personal Attacks Seen at Scale, Toxicity |  |
+| 28 | Done (v3) | Ex Machina: Personal Attacks Seen at Scale, Personal attacks | Wulczyn2017attack |
+| 29 | Done (v3) | Ex Machina: Personal Attacks Seen at Scale, Toxicity | Wulczyn2017toxic |
 | 30 | Postponed (sql file) | Detecting cyberbullying in online communities (World of Warcraft) |  |
 | 31 | Postponed (sql file) | Detecting cyberbullying in online communities (League of Legends) |  |
 | 32 | E-Mail required | A Qality Type-aware Annotated Corpus and Lexicon for Harassment Research | Rezvan2018 |
-| 33 | Postponed (figure out where datasets are) | Ex Machina: Personal Attacks Seen at Scale, Aggression and Friendliness |  |
+| 33 | Done (v3) | Ex Machina: Personal Attacks Seen at Scale, Aggression and Friendliness | Wulczyn2017aggressive |
 | 34 | Done (v3) | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
 | 35 | Done (v3) | Multilingual and Multi-Aspect Hate Speech Analysis (English) | Ousidhoum2019 |
 | 36 | Done (v3) | Measuring the Reliability of Hate Speech Annotations:The Case of the European Refugee Crisis | Ross2017 |

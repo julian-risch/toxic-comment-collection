@@ -25,6 +25,11 @@ from . import sanguinetti2018
 from . import fortuna2019
 from . import coltekin2019
 from . import albadi2018
+from . import basile2019
+from . import founta2018
+from . import wulczyn2017toxic
+from . import wulczyn2017aggressive
+from . import wulczyn2017attack
 
 def get_datasets():
     return [
@@ -55,4 +60,9 @@ def get_datasets():
         fortuna2019.Fortuna2019(),
         coltekin2019.Coltekin2019(),
         albadi2018.Albadi2018(),
+        basile2019.Basile2019(),
+        founta2018.Founta2018(),
+        wulczyn2017toxic.Wulczyn2017toxic(),
+        wulczyn2017aggressive.Wulczyn2017aggressive(),
+        wulczyn2017attack.Wulczyn2017attack(),
     ]

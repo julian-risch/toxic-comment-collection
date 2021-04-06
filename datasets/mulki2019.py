@@ -30,7 +30,8 @@ class Mulki2019(dataset.Dataset):
 
     @classmethod
     def unify_row(cls, row):
+        row["text"] = row["tweet"]
         labels = [row["Class"]]
         row["labels"] = labels
-        row = row.drop(["Class"])
+        row = row.drop(["Class", "tweet"])
         return row
