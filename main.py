@@ -70,6 +70,8 @@ def print_help():
 
 -o  --original      Download the datasets but don't process them
 
+    --genconfig     Generate or Update the config file
+
 -s  --statistcs     Generates statistics about the downloaded datasets. Make sure to run
                     the script without the -s parameter before to download the datasets.
                     Does not work with unprocessed data (-o)""")
@@ -110,8 +112,7 @@ def generate_statistics(filedir):
 
 def generate_config(filedir):
     reset_twitter_api_keys = False
-    reset_download_option = False
-    reset_translation_table = False
+    reset_dataset_config = False
     if (os.path.isfile("config.json") and input("Reset config.json completely? [y/n]") != "y"):
         with open("config.json", "r") as f:
             config = json.load(f)
@@ -135,18 +136,33 @@ def generate_config(filedir):
             "access_token_secret": "xxxx"
         }
 
+    reset_dataset_config = (
+        not "datasets" in config or
+        input("Reset Dataset Config? [y/n]") == "y"
+    )
+
+    if reset_dataset_config:
+        config["datasets"] = {}
+
     sg = statisitics_generator.Statisitics_generator(filedir)
     ds_data,_ = sg.generate()
-    config["datasets"] = {}
+    
     for ds in ds_data:
         translation_table = {}
-        download = True
         for label in ds_data[ds]["labels"]:
             translation_table[label] = [label]
-        config["datasets"][ds] = {
-            "translation": translation_table,
-            "download" : download
-        }
+        if not ds in config["datasets"]:
+            config["datasets"][ds] = { "translation": translation_table, "download" : True }
+        else:
+            if not "download" in config["datasets"][ds]:
+                config["datasets"][ds]["download"] = True
+            
+            if "translation" in config["datasets"][ds]["translation"]:
+                for i in config["datasets"][ds]["translation"]:
+                    translation_table[i] = config["datasets"][ds]["translation"][i]
+            config["datasets"][ds]["translation"] = translation_table
+                
+        
     with open("config.json", "w") as f:
         json.dump(config, f, indent=2)
 

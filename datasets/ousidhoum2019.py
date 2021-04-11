@@ -77,9 +77,10 @@ SOFTWARE."""
 
     @classmethod
     def unify_row(cls, row):
+        row["text"] = row["tweet"]
         labels = row["sentiment"].split("_")
         labels.append(row["directness"])
         row["labels"] = labels
-        row = row.drop(["annotator_sentiment","target","group","directness","HITId","sentiment"])
+        row = row.drop(["annotator_sentiment","target","group","directness","HITId","sentiment", "tweet"])
         return row
         

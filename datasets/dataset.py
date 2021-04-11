@@ -5,6 +5,7 @@ import pandas as pd
 import os
 import csv
 import json
+import ast
 
 import logging
 
@@ -69,6 +70,8 @@ class Dataset(ABC):
     @classmethod
     def translate_row(cls, row, translation):
         translated_labels = []
+        if type(row["labels"]) == str:
+            row["labels"] = ast.literal_eval(row["labels"])
         for i in row["labels"]:
             translated_labels.extend(translation.get(i, [i]))
         row["labels"] = translated_labels

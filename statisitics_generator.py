@@ -61,7 +61,7 @@ class Statisitics_generator:
                 
 
     def _generate_file_statistics(self, file):
-        df = pd.read_csv(file)
+        df = pd.read_csv(file, sep="\t")
         statistics = {}
         statistics["rows"] = len(df)
         statistics["file size"] = os.path.getsize(file)
