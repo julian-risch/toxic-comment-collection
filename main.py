@@ -90,7 +90,7 @@ def combine_datasets(filedir, output_file_name="combined.tsv"):
             combined_df = combined_df.append(df)
     combined_df.to_csv(output_file, index_label="id", quoting=csv.QUOTE_NONNUMERIC, sep="\t")
 
-def fetch_datasets(filedir, tempdir, unify_format=True, translate_labels=True):
+def fetch_datasets(filedir, tempdir, unify_format=True, translate_labels=True, skipDownload=False):
     clear_all()
     logging.info("Download Data and perform initial processing")
     max_suffix_length = 0
