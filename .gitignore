@@ -146,4 +146,4 @@ tmp/
 statistics.txt
 
 # configuration files
-config.json
+# config.json
