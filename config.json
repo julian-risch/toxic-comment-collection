@@ -261,7 +261,8 @@
           "sexism"
         ],
         "hate_speech_disability": [
-          "hate", "disability_hate"
+          "hate",
+          "disability_hate"
         ],
         "racism": [
           "racism"
@@ -270,7 +271,8 @@
           "hate"
         ],
         "hate_speech_religion": [
-          "hate", "religion_hate"
+          "hate",
+          "religion_hate"
         ]
       },
       "download": true
@@ -739,6 +741,17 @@
         ],
         "attack": [
           "attack"
+        ]
+      },
+      "download": true
+    },
+    "sigurbergsson2019da.csv": {
+      "translation": {
+        "NOT": [
+          "none"
+        ],
+        "OFF": [
+          "offensive"
         ]
       },
       "download": true

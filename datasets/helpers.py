@@ -4,6 +4,8 @@ import zipfile
 import pandas as pd
 import json
 import csv
+import tarfile
+
 from io import BytesIO
 from urllib.request import urlopen
 from twarc import Twarc
@@ -49,6 +51,11 @@ def unzip_file(file_name : str):
     with zipfile.ZipFile(file_name) as zip_file:
         zip_file.extractall(extraction_dir)
     return extraction_dir
+
+def untarbz_file(file_name : str):
+    tar = tarfile.open(file_name, "r:bz2")
+    tar.extractall(path=os.path.dirname(file_name))
+    tar.close()
 
 def add_column(file_name : str, column_name : str, column_value) -> str:
     new_file = file_name + "_new_column"
