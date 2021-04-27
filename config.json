@@ -710,7 +710,7 @@
       },
       "download": true
     },
-    "wulczyn2017toxicen.csv": {
+    "wulczyn2017en_toxic.csv": {
       "translation": {
         "none": [
           "none"
@@ -721,7 +721,7 @@
       },
       "download": true
     },
-    "wulczyn2017aggressiveen.csv": {
+    "wulczyn2017en_aggressive.csv": {
       "translation": {
         "none": [
           "none"
@@ -732,7 +732,7 @@
       },
       "download": true
     },
-    "wulczyn2017attacken.csv": {
+    "wulczyn2017en_attack.csv": {
       "translation": {
         "none": [
           "none"

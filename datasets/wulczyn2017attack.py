@@ -12,7 +12,7 @@ class Wulczyn2017attack(dataset.Dataset):
     hash = "9e48068af1fbbe893af4df1b629ceebf924dc723a290c7bc473d2a8a8aac3529"
     files = [
         {
-            "name": "wulczyn2017attacken.csv",
+            "name": "wulczyn2017en_attack.csv",
             "language": "en",
             "type": "training",
             "platform": "wikipedia"
