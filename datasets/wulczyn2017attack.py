@@ -36,7 +36,7 @@ class Wulczyn2017attack(dataset.Dataset):
         labels.to_csv(file2 + "_grouped")
 
         tmp_file_path = helpers.join_csvs(file1 + "_endings", "rev_id", file2 + "_grouped", "rev_id")
-        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "wulczyn2017attacken.csv"))
+        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "wulczyn2017en_attack.csv"))
         
     @classmethod
     def unify_row(cls, row):

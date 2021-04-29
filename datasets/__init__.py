@@ -31,6 +31,8 @@ from . import wulczyn2017toxic
 from . import wulczyn2017aggressive
 from . import wulczyn2017attack
 from . import sigurbergsson2019
+from . import kulkarni2021
+from . import novak2021
 
 def get_datasets():
     return [
@@ -67,4 +69,6 @@ def get_datasets():
         wulczyn2017aggressive.Wulczyn2017aggressive(),
         wulczyn2017attack.Wulczyn2017attack(),
         sigurbergsson2019.Sigurbergsson2019(),
+        kulkarni2021.Kulkarni2021(),
+        novak2021.Novak2021(),
     ]

@@ -755,6 +755,40 @@
         ]
       },
       "download": true
+    },
+    "kulkarni2021mr.csv": {
+      "translation": {
+        "0": [
+          "none"
+        ],
+        "1": [
+          "positive"
+        ],
+        "-1": [
+          "negative"
+        ]
+      },
+      "download": true
+    },
+    "novak2021sl.csv": {
+      "translation": {
+        "0 ni sporni govor": [
+          "none"
+        ],
+        "2 \u017ealitev": [
+          "inappropriate"
+        ],
+        "1 nespodobni govor": [
+          "appropriate"
+        ],
+        "3 nasilje": [
+          "offensive"
+        ],
+        "nan": [
+          "none"
+        ]
+      },
+      "download": true
     }
   }
 }
