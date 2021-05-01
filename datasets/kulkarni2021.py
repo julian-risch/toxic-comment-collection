@@ -2,7 +2,7 @@ from . import dataset
 from . import helpers
 import os
 
-class Kulkarni21(dataset.Dataset):
+class Kulkarni2021(dataset.Dataset):
     
     name = "kulkarni2021"
     url = "https://github.com/l3cube-pune/MarathiNLP/raw/main/L3CubeMahaSent%20Dataset/tweets-train.csv"
