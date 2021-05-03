@@ -11,6 +11,15 @@ from urllib.request import urlopen
 from twarc import Twarc
 
 def download_from(url : str, destination_folder : str, file_name : str = "downloaded.file") -> str:
+    """ Downloads a file to the specified destination.
+        
+        Keyword arguments:
+        url -- url of the file to download
+        destination_folder -- folder of to download the file to
+        file_name -- name of the downloaded file
+
+        Returns path to the downloaded file.
+    """
     with urlopen(url) as response:
         file_path = os.path.join(destination_folder, file_name)
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
@@ -19,23 +28,52 @@ def download_from(url : str, destination_folder : str, file_name : str = "downlo
     return file_path
 
 def convert_excel_to_csv(file_name : str) -> str:
+    """ Converts Excel file to CSV file.
+        
+        Keyword arguments:
+        file_name -- path of the Excel file
+
+        Returns path to the converted CSV file
+    """
     new_file = file_name + ".csv"
     excel_data = pd.read_excel(file_name)
     excel_data.to_csv(new_file, index=False)
     return new_file
 
 def copy_file(source_file : str, destination_file : str) -> str:
+    """ Copies a file to a given path. Creates the path if it doesn't exist.
+        
+        Keyword arguments:
+        source_file -- path of the source file
+        destination_file -- path of the destination file
+        
+        Returns path to the destination file
+    """
     os.makedirs(os.path.dirname(destination_file), exist_ok=True)
     shutil.copyfile(source_file, destination_file)
     return destination_file
 
 def convert_json_to_csv(file_name : str) -> str:
+    """ Converts JSON file to CSV file
+        
+        Keyword arguments:
+        file_name -- path of the JSON file
+
+        Returns path to the converted CSV file
+    """
     new_file = file_name + ".csv"
     json_data = pd.read_json(file_name)
     json_data.to_csv(new_file, index=False)
     return new_file
 
 def convert_jsonl_to_csv(file_name : str) -> str:
+    """ Converts JSONL file to CSV file
+        
+        Keyword arguments:
+        file_name -- path of the JSONL file
+
+        Returns path to the converted CSV file
+    """
     new_file = file_name + ".json"
     data = []
     with open(file_name, "r") as jsonl_file:
@@ -45,7 +83,14 @@ def convert_jsonl_to_csv(file_name : str) -> str:
     df.to_csv(new_file, index=False)
     return new_file
 
-def unzip_file(file_name : str):
+def unzip_file(file_name : str) -> str:
+    """ Unpacks a ZIP file
+        
+        Keyword arguments:
+        file_name -- path of the ZIP file
+
+        Returns path to the folder containing the unpacked files.
+    """
     extraction_dir = os.path.join(os.path.dirname(file_name), os.path.basename(file_name) + "_extracted")
     os.makedirs(extraction_dir, exist_ok=False)
     with zipfile.ZipFile(file_name) as zip_file:
@@ -53,11 +98,25 @@ def unzip_file(file_name : str):
     return extraction_dir
 
 def untarbz_file(file_name : str):
+    """ Unpacks a .tar.bz2 file
+        
+        Keyword arguments:
+        file_name -- path of the .tar.bz2 file
+    """
     tar = tarfile.open(file_name, "r:bz2")
     tar.extractall(path=os.path.dirname(file_name))
     tar.close()
 
 def add_column(file_name : str, column_name : str, column_value) -> str:
+    """ Inserts a new column into a CSV file.
+        
+        Keyword arguments:
+        file_name -- path of the CSV file
+        column_name -- name of the new column
+        column_value -- default value that is added in each line
+
+        Returns path to the resulting file.
+    """
     new_file = file_name + "_new_column"
     df = pd.read_csv(file_name)
     df.insert(loc=0, column=column_name, value=[column_value] * df.count().max())
@@ -73,6 +132,8 @@ def clean_csv(file_name : str, names : [str] = None, header : int = 'infer', sep
         header -- set to 0 if an existing header should be overwritten
         sep -- seperator of the CSV file
         dtype -- dict containing the data types of the columns
+
+        Returns path to the resulting file.
     """
     new_file = file_name + "_clean"
     df = pd.read_csv(file_name, names=names, sep=sep, header=header, dtype=dtype)
@@ -80,13 +141,15 @@ def clean_csv(file_name : str, names : [str] = None, header : int = 'infer', sep
     return new_file
 
 def join_csvs(file1 : str, column1 : str, file2 : str, column2 : str) -> str:
-    """Joins two CSVs on a given column
+    """ Joins two CSVs on a given column
 
-    Keyword arguments:
-    file1 -- path of the first CSV
-    column1 -- name of the column to join on in file1
-    file2 -- path of the second CSV
-    column2 -- name of the column to join on in file2 
+        Keyword arguments:
+        file1 -- path of the first CSV
+        column1 -- name of the column to join on in file1
+        file2 -- path of the second CSV
+        column2 -- name of the column to join on in file2
+
+        Returns path to the resulting file.
     """
     new_file = file1 + "_joined"
     df1 = pd.read_csv(file1)
@@ -96,6 +159,14 @@ def join_csvs(file1 : str, column1 : str, file2 : str, column2 : str) -> str:
     return new_file
 
 def drop_duplicates(file_name : str, columns : [str]) -> str:
+    """ Drops all duplicates in a CSV file
+
+        Keyword arguments:
+        file_name -- path of the CSV file
+        columns -- list of columns to perform duplicate checking on
+
+        Returns path to the resulting file.
+    """
     new_file = file_name + "_dropped"
     df = pd.read_csv(file_name)
     df = df.drop_duplicates(columns)
@@ -103,10 +174,12 @@ def drop_duplicates(file_name : str, columns : [str]) -> str:
     return new_file
 
 def merge_csvs(files : dict) -> str:
-    """Merge multiple CSV files into one.
+    """ Merge multiple CSV files into one.
 
-    Keyword arguments:
-    files -- dictionary with the filename as a key and a list of attributes that will be added in a label column
+        Keyword arguments:
+        files -- dictionary with the filename as a key and a list of attributes that will be added in a label column
+
+        Returns path to the resulting file.
     """
     new_file = list(files.keys())[0] + "_merged"
 
@@ -121,6 +194,14 @@ def merge_csvs(files : dict) -> str:
 
 
 def download_tweets_for_csv(file_name : str, column : str) -> str:
+    """ Replaces the Tweet IDs of a CSV file with the actual tweets.
+
+        Keyword arguments:
+        file_name -- path of the CSV file
+        column -- name of the column containing the tweet IDs
+
+        Returns path to the resulting file.
+    """
     def hydrate(row, translation, columns):
         if str(row[column]) in translation:
             row["text"] = translation[row[column]]
