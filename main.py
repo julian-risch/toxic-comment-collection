@@ -3,7 +3,7 @@ import os
 import shutil
 import sys
 import getopt
-import statisitics_generator
+import statistics_generator
 import json
 import csv
 import datasets.helpers
