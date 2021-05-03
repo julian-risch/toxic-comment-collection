@@ -1,4 +1,6 @@
 {
+  "temp_directory": "./tmp",
+  "file_directory": "./files",
   "twitter": {
     "consumer_key": "",
     "consumer_secret": "",

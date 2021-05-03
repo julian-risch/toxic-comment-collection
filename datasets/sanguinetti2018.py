@@ -7,7 +7,7 @@ class Sanguinetti2018(dataset.Dataset):
     
     name = "sanguinetti2018"
     url = "https://github.com/msang/hate-speech-corpus/raw/master/IHSC_ids.tsv"
-    hash = "8e88d5bf4d98f86d7c8fb9c010008246e206814e8dbe5695ec7de4a76812bc86"
+    hash = "9c8fd7224362e5fa488ba70dbc1ae55cfc0a452d303c1508e3607e2cc2e20fa1"
     files = [
         {
             "name": "sanguinetti2018it.csv",

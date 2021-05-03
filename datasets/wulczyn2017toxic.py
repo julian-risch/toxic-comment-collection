@@ -21,6 +21,11 @@ class Wulczyn2017toxic(dataset.Dataset):
     license = """ """
 
     @classmethod
+    def valid_hash(cls, file):
+        """do not check hash since it differs for each download"""
+        return
+
+    @classmethod
     def process(cls, tmp_file_path, dataset_folder, temp_folder):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
         file1 = helpers.clean_csv(os.path.join(tmp_file_path, "toxicity_annotated_comments.tsv"), sep="\t")
