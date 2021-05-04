@@ -113,7 +113,7 @@ def fetch_datasets(config, unify_format=True, translate_labels=True, skipDownloa
 
 
 def generate_statistics(filedir):
-    sg = statisitics_generator.Statisitics_generator(filedir)
+    sg = statistics_generator.Statistics_generator(filedir)
     sg.generate("statistics.txt")
 
 
@@ -148,7 +148,7 @@ def generate_config(filedir):
     if (not "datasets" in config or input("Reset Dataset Config? [y/n]") == "y"):
         config["datasets"] = {}
 
-    sg = statisitics_generator.Statisitics_generator(filedir)
+    sg = statistics_generator.Statistics_generator(filedir)
     ds_data, _ = sg.generate()
 
     for ds in ds_data:

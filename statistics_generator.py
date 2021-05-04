@@ -4,7 +4,7 @@ import ast
 import pandas as pd
 import json
 
-class Statisitics_generator:
+class Statistics_generator:
 
     def __init__(self, filedir):
         self.filedir = filedir
