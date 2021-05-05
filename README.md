@@ -96,4 +96,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 63 | Done | A Corpus of Turkish Offensive Language on Social Media | Coltekin2019 |
 
 ### More datasets we should also include:
+* https://github.com/SilentFlame/AggressionDetection/tree/master/DataPre-Processing kumar2018aggression
+* https://github.com/idontflow/OLID zampieri2019predicting
+
 * https://github.com/punyajoy/Fear-speech-analysis/
