@@ -33,6 +33,8 @@ from . import wulczyn2017attack
 from . import sigurbergsson2019
 from . import kulkarni2021
 from . import novak2021
+from . import kumar2018
+from . import zampieri2019
 
 def get_datasets():
     return [
@@ -71,4 +73,6 @@ def get_datasets():
         sigurbergsson2019.Sigurbergsson2019(),
         kulkarni2021.Kulkarni2021(),
         novak2021.Novak2021(),
+        kumar2018.Kumar2018(),
+        zampieri2019.Zampieri2019(),
     ]

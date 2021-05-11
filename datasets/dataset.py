@@ -7,8 +7,6 @@ import csv
 import json
 import ast
 
-import logging
-
 class Dataset(ABC):
 
     @staticmethod
@@ -60,7 +58,7 @@ class Dataset(ABC):
         if cls.hash == hash_value:
             return True
         else:
-            logging.warning(cls.name + ": Expected Dataset hash to be " + cls.hash + " but was " + hash_value)
+            print(cls.name + ": Expected Dataset hash to be " + cls.hash + " but was " + hash_value)
             return False
 
     @classmethod
