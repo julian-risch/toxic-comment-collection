@@ -94,15 +94,16 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 61 |  |  |  |
 | 62 | Data not found | hatEval, SemEval-2019 Task 5: Multilingual Detection of Hate Speech Against Immigrants and Women in Twitter (Spanish) |  |
 | 63 | Done | A Corpus of Turkish Offensive Language on Social Media | Coltekin2019 |
-| Additional 1 | Aggression Detection on Social Media Text Using Deep Neural Networks | Kumar2018 |
-| Additional 2 | Predicting the Type and Target of Offensive Posts in Social Media | Zampieri2019 |
+| Additional 1 | Done | Aggression Detection on Social Media Text Using Deep Neural Networks | Kumar2018 |
+| Additional 2 | Done | Predicting the Type and Target of Offensive Posts in Social Media | Zampieri2019 |
 
 ### More datasets we should also include:
-* https://github.com/SilentFlame/AggressionDetection/tree/master/DataPre-Processing kumar2018aggression
-* https://github.com/idontflow/OLID zampieri2019predicting
-
-* https://github.com/punyajoy/Fear-speech-analysis/
+* not urgent https://github.com/punyajoy/Fear-speech-analysis/
 
 ### Further ToDos
 * Don't download existing datasets again
 * Use "download"-Switch from config file
+* Multilingual experiments: shuffle combined.tsv and split into train/test set; use binary label mapping and train xlm-roberta-base model
+  * none,normal,other,positive,appropriate -> non-toxic
+  * idk/skip -> discard 
+  * rest -> toxic
