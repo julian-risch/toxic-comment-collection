@@ -101,12 +101,10 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 * http://www.ub-web.de/research/resources/wow_anonymized.zip
 * http://www.ub-web.de/research/resources/lol_anonymized.zip
   * both using https://github.com/julian-risch/toxic-comment-collection/blob/main/sql_dump_to_csv.py
-* not urgent https://github.com/punyajoy/Fear-speech-analysis/
 
 ### Further ToDos
 * Make sure that the script does not fail if api_config is empty -> download datasets that don't need Twitter API
-* Don't download existing datasets again
-* Use "download"-Switch from config file
+* Execute process method for each dataset right after downloading (only once). only unify is executed every time so that the user can try out different mappings
 * Multilingual experiments: shuffle combined.tsv and split into train/test set; use binary label mapping and train xlm-roberta-base model
   * none,normal,other,positive,appropriate -> non-toxic
   * idk/skip -> discard 
