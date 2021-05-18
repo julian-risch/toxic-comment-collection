@@ -1,12 +1,7 @@
 {
   "temp_directory": "./tmp",
   "file_directory": "./files",
-  "twitter": {
-    "consumer_key": "",
-    "consumer_secret": "",
-    "access_token": "",
-    "access_token_secret": ""
-  },
+  "raw_directory": "./raw",
   "datasets": {
     "ousidhoum2019ar.csv": {
       "translation": {
@@ -34,8 +29,7 @@
         "fearful": [
           "fearful"
         ]
-      },
-      "download": true
+      }
     },
     "ousidhoum2019en_with_stopwords.csv": {
       "translation": {
@@ -63,8 +57,7 @@
         "fearful": [
           "fearful"
         ]
-      },
-      "download": true
+      }
     },
     "ousidhoum2019en.csv": {
       "translation": {
@@ -92,8 +85,7 @@
         "fearful": [
           "fearful"
         ]
-      },
-      "download": true
+      }
     },
     "ousidhoum2019fr.csv": {
       "translation": {
@@ -121,8 +113,7 @@
         "disrespectful": [
           "disrespectful"
         ]
-      },
-      "download": true
+      }
     },
     "mulki2019ar.csv": {
       "translation": {
@@ -135,8 +126,7 @@
         "hate": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "mubarak2017ar_twitter.csv": {
       "translation": {
@@ -149,8 +139,7 @@
         "obscene": [
           "obscene"
         ]
-      },
-      "download": true
+      }
     },
     "mubarak2017ar_aljazeera.csv": {
       "translation": {
@@ -163,8 +152,7 @@
         "obscene": [
           "obscene"
         ]
-      },
-      "download": true
+      }
     },
     "davidson2017en.csv": {
       "translation": {
@@ -177,8 +165,7 @@
         "hate": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "gibert2018en.csv": {
       "translation": {
@@ -194,8 +181,7 @@
         "idk/skip": [
           "idk/skip"
         ]
-      },
-      "download": true
+      }
     },
     "gao2018en.csv": {
       "translation": {
@@ -205,8 +191,7 @@
         "hate": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "chung2019.csv": {
       "translation": {
@@ -216,24 +201,21 @@
         "Islamophobia": [
           "Islamophobia"
         ]
-      },
-      "download": true
+      }
     },
     "qian2019en_gab.csv": {
       "translation": {
         "hate": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "qian2019en_reddit.csv": {
       "translation": {
         "hate": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "waseem2016en.csv": {
       "translation": {
@@ -246,16 +228,14 @@
         "racism": [
           "racism"
         ]
-      },
-      "download": true
+      }
     },
     "jha2017en.csv": {
       "translation": {
         "sexism": [
           "sexism"
         ]
-      },
-      "download": true
+      }
     },
     "elSherief2018en.csv": {
       "translation": {
@@ -276,8 +256,7 @@
           "hate",
           "religion_hate"
         ]
-      },
-      "download": true
+      }
     },
     "mandl2019en.csv": {
       "translation": {
@@ -299,8 +278,7 @@
         "untargeted": [
           "untargeted"
         ]
-      },
-      "download": true
+      }
     },
     "mandl2019ger.csv": {
       "translation": {
@@ -316,8 +294,7 @@
         "profane": [
           "profane"
         ]
-      },
-      "download": true
+      }
     },
     "mandl2019hind.csv": {
       "translation": {
@@ -339,8 +316,7 @@
         "untargeted": [
           "untargeted"
         ]
-      },
-      "download": true
+      }
     },
     "bretschneider2017en.csv": {
       "translation": {
@@ -371,8 +347,7 @@
         "no_target": [
           "no_target"
         ]
-      },
-      "download": true
+      }
     },
     "ross2018de.csv": {
       "translation": {
@@ -382,8 +357,7 @@
         "hate": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "wiegand2018de.csv": {
       "translation": {
@@ -402,8 +376,7 @@
         "PROFANITY": [
           "profane"
         ]
-      },
-      "download": true
+      }
     },
     "pitenis2020gr.csv": {
       "translation": {
@@ -413,8 +386,7 @@
         "OFF": [
           "offensive"
         ]
-      },
-      "download": true
+      }
     },
     "mathur2018hing.csv": {
       "translation": {
@@ -448,8 +420,7 @@
         "hate:10": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "alfina2017id.csv": {
       "translation": {
@@ -459,8 +430,7 @@
         "HS": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "ibrohim2019id.csv": {
       "translation": {
@@ -500,8 +470,7 @@
         "HS_Strong": [
           "HS_Strong"
         ]
-      },
-      "download": true
+      }
     },
     "ibrohim2018id.csv": {
       "translation": {
@@ -514,8 +483,7 @@
         "none": [
           "none"
         ]
-      },
-      "download": true
+      }
     },
     "sanguinetti2018it.csv": {
       "translation": {
@@ -543,8 +511,7 @@
         "strong_offensiveness": [
           "offensive"
         ]
-      },
-      "download": true
+      }
     },
     "fortuna2019pt.csv": {
       "translation": {
@@ -647,8 +614,7 @@
         "Egyptians": [
           "Egyptians"
         ]
-      },
-      "download": true
+      }
     },
     "coltekin2019tr.csv": {
       "translation": {
@@ -658,8 +624,7 @@
         "OFF": [
           "offensive"
         ]
-      },
-      "download": true
+      }
     },
     "albadi2018ar_train.csv": {
       "translation": {
@@ -669,8 +634,7 @@
         "hate": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "albadi2018ar_test.csv": {
       "translation": {
@@ -680,8 +644,7 @@
         "hate": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "basile2019en.csv": {
       "translation": {
@@ -694,8 +657,7 @@
         "TR": [
           "TR"
         ]
-      },
-      "download": true
+      }
     },
     "founta2018en.csv": {
       "translation": {
@@ -711,8 +673,7 @@
         "hate": [
           "hate"
         ]
-      },
-      "download": true
+      }
     },
     "wulczyn2017en_toxic.csv": {
       "translation": {
@@ -722,8 +683,7 @@
         "toxic": [
           "toxic"
         ]
-      },
-      "download": true
+      }
     },
     "wulczyn2017en_aggressive.csv": {
       "translation": {
@@ -733,8 +693,7 @@
         "aggressive": [
           "aggressive"
         ]
-      },
-      "download": true
+      }
     },
     "wulczyn2017en_attack.csv": {
       "translation": {
@@ -744,8 +703,7 @@
         "attack": [
           "attack"
         ]
-      },
-      "download": true
+      }
     },
     "sigurbergsson2019da.csv": {
       "translation": {
@@ -755,8 +713,7 @@
         "OFF": [
           "offensive"
         ]
-      },
-      "download": true
+      }
     },
     "kulkarni2021mr.csv": {
       "translation": {
@@ -769,8 +726,7 @@
         "-1": [
           "negative"
         ]
-      },
-      "download": true
+      }
     },
     "novak2021sl.csv": {
       "translation": {
@@ -789,7 +745,145 @@
         "nan": [
           "none"
         ]
-      },
+      }
+    },
+    "kumar2018hing.csv": {
+      "translation": {
+        "CAG": [
+          "aggressive"
+        ],
+        "OAG": [
+          "aggressive"
+        ],
+        "NAG": [
+          "none"
+        ]
+      }
+    },
+    "zampieri2019en.csv": {
+      "translation": {
+        "none": [
+          "none"
+        ],
+        "offensive": [
+          "offensive"
+        ],
+        "NOT": [
+          "none"
+        ],
+        "OFF": [
+          "offensive"
+        ]
+      }
+    }
+  },
+  "data_sources": {
+    "ousidhoum2019": {
+      "download": true
+    },
+    "mulki2019": {
+      "download": true
+    },
+    "mubarak2017": {
+      "download": true
+    },
+    "davidson2017": {
+      "download": true
+    },
+    "gibert2018": {
+      "download": true
+    },
+    "gao2018": {
+      "download": true
+    },
+    "chung2019": {
+      "download": true
+    },
+    "qian2019": {
+      "download": true
+    },
+    "waseem2016": {
+      "download": true
+    },
+    "jha2017": {
+      "download": true
+    },
+    "elSherief2018": {
+      "download": true
+    },
+    "mandl2019en": {
+      "download": true
+    },
+    "mandl2019ger": {
+      "download": true
+    },
+    "mandl2019hind": {
+      "download": true
+    },
+    "bretschneider2017": {
+      "download": true
+    },
+    "ross2017": {
+      "download": true
+    },
+    "wiegand2018": {
+      "download": true
+    },
+    "pitenis2020": {
+      "download": true
+    },
+    "mathur2018": {
+      "download": true
+    },
+    "alfina2017": {
+      "download": true
+    },
+    "ibrohim2019": {
+      "download": true
+    },
+    "ibrohim2018": {
+      "download": true
+    },
+    "sanguinetti2018": {
+      "download": true
+    },
+    "fortuna2019": {
+      "download": true
+    },
+    "coltekin2019": {
+      "download": true
+    },
+    "albadi2018": {
+      "download": true
+    },
+    "basile2019": {
+      "download": true
+    },
+    "founta2018": {
+      "download": true
+    },
+    "wulczyn2017toxic": {
+      "download": true
+    },
+    "wulczyn2017aggressive": {
+      "download": true
+    },
+    "wulczyn2017attack": {
+      "download": true
+    },
+    "sigurbergsson2019": {
+      "download": true
+    },
+    "kulkarni2021": {
+      "download": true
+    },
+    "novak2021": {
+      "download": true
+    },
+    "kumar2018": {
+      "download": true
+    },
+    "zampieri2019": {
       "download": true
     }
   }

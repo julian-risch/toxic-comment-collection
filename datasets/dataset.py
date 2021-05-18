@@ -37,8 +37,8 @@ class Dataset(ABC):
         return []
 
     @classmethod
-    def download(cls, temp_folder):
-        return helpers.download_from(cls.url, temp_folder)
+    def download(cls, file_name):
+        return helpers.download_from(cls.url, file_name)
 
     @classmethod
     def process(cls, tmp_file_path, dataset_folder, temp_folder):
@@ -76,14 +76,13 @@ class Dataset(ABC):
         return row
 
     @classmethod
-    def unify(cls, dataset_folder, translate_labels):
-        if (os.path.isfile("config.json")):
-            with open("config.json", "r") as f:
-                config = json.load(f)
+    def unify(cls, dataset_folder):
+        with open("config.json", "r") as f:
+            config = json.load(f)
         for file in cls.files:
             df = pd.read_csv(os.path.join(dataset_folder, file["name"]))
             df = cls.unify_format(df)
-            if (translate_labels and config and file["name"] in config["datasets"]):
+            if (config and file["name"] in config["datasets"]):
                 df = cls.translate_labels(df, config["datasets"][file["name"]]["translation"])
             df.to_csv(os.path.join(dataset_folder, file["name"]), index_label="id", quoting=csv.QUOTE_NONNUMERIC, sep="\t")
 

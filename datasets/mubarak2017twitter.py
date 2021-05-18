@@ -4,7 +4,7 @@ from . import helpers
 
 class Mubarak2017twitter(dataset.Dataset):
     
-    name = "mubarak2017"
+    name = "mubarak2017twitter"
     url = "http://alt.qcri.org/~hmubarak/offensive/TweetClassification-Summary.xlsx"
     hash = "606f73388adae60af740779f9b501f30cf9adac82afe15a46fe07155db3823cf"
     files = [

@@ -10,22 +10,20 @@ from io import BytesIO
 from urllib.request import urlopen
 from twarc import Twarc
 
-def download_from(url : str, destination_folder : str, file_name : str = "downloaded.file") -> str:
+def download_from(url : str, destination_file : str) -> str:
     """ Downloads a file to the specified destination.
         
         Keyword arguments:
         url -- url of the file to download
-        destination_folder -- folder of to download the file to
-        file_name -- name of the downloaded file
+        destination_file -- path to the file to download to
 
         Returns path to the downloaded file.
     """
     with urlopen(url) as response:
-        file_path = os.path.join(destination_folder, file_name)
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        with open(file_path, 'wb') as f:
+        os.makedirs(os.path.dirname(destination_file), exist_ok=True)
+        with open(destination_file, 'wb') as f:
             shutil.copyfileobj(response, f)
-    return file_path
+    return destination_file
 
 def convert_excel_to_csv(file_name : str) -> str:
     """ Converts Excel file to CSV file.
@@ -214,7 +212,7 @@ def download_tweets_for_csv(file_name : str, column : str) -> str:
 
     new_file = file_name + "_with_tweets"
     df = pd.read_csv(file_name, dtype={column: str})
-    with open("config.json", "r") as config:
+    with open("api_config.json", "r") as config:
         api_data = json.load(config)
     t = Twarc(
         api_data["twitter"]["consumer_key"],

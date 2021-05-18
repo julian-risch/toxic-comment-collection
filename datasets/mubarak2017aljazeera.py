@@ -6,7 +6,7 @@ from . import helpers
 
 class Mubarak2017aljazeera(dataset.Dataset):
     
-    name = "mubarak2017"
+    name = "mubarak2017aljazeera"
     url = "http://alt.qcri.org/~hmubarak/offensive/AJCommentsClassification-CF.xlsx"
     hash = "afa00e36ff5492c1bbdd42a0e4979886f40d00f1aa5517807a957e22fb517670"
     files = [

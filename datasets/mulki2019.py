@@ -18,10 +18,6 @@ class Mulki2019(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def download(cls, temp_folder):
-        return helpers.download_from(cls.url, temp_folder)
-
-    @classmethod
     def process(cls, tmp_file_path, dataset_folder, temp_folder):
         # read write to convert csv seperator to ","
         df = pd.read_csv(tmp_file_path, sep="\t")
