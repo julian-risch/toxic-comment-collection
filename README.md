@@ -104,6 +104,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 * not urgent https://github.com/punyajoy/Fear-speech-analysis/
 
 ### Further ToDos
+* Make sure that the script does not fail if api_config is empty -> download datasets that don't need Twitter API
 * Don't download existing datasets again
 * Use "download"-Switch from config file
 * Multilingual experiments: shuffle combined.tsv and split into train/test set; use binary label mapping and train xlm-roberta-base model
