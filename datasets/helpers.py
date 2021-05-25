@@ -5,6 +5,8 @@ import pandas as pd
 import json
 import csv
 import tarfile
+import re
+import ast
 
 from io import BytesIO
 from urllib.request import urlopen
@@ -138,7 +140,7 @@ def clean_csv(file_name : str, names : [str] = None, header : int = 'infer', sep
     df.to_csv(new_file, index=False, quoting=csv.QUOTE_NONNUMERIC)
     return new_file
 
-def join_csvs(file1 : str, column1 : str, file2 : str, column2 : str) -> str:
+def join_csvs(file1 : str, column1 : str, file2 : str, column2 : str, how : str = 'inner') -> str:
     """ Joins two CSVs on a given column
 
         Keyword arguments:
@@ -146,13 +148,14 @@ def join_csvs(file1 : str, column1 : str, file2 : str, column2 : str) -> str:
         column1 -- name of the column to join on in file1
         file2 -- path of the second CSV
         column2 -- name of the column to join on in file2
+        how -- joint type of the pandas DataFrame.merge function
 
         Returns path to the resulting file.
     """
     new_file = file1 + "_joined"
     df1 = pd.read_csv(file1)
     df2 = pd.read_csv(file2)
-    df = df1.merge(df2, left_on=column1, right_on=column2)
+    df = df1.merge(df2, how=how, left_on=column1, right_on=column2)
     df.to_csv(new_file, index=False)
     return new_file
 
@@ -226,3 +229,76 @@ def download_tweets_for_csv(file_name : str, column : str) -> str:
     df = df.apply(hydrate, axis=1, args=(translation,df.columns)).dropna(how='all')
     df.to_csv(new_file, index=False, quoting=csv.QUOTE_NONNUMERIC)
     return new_file
+
+def extract_sql_tables(file_name : str) -> str:
+    """ Extracts tables from SQL file and saves them as CSV.
+
+        Keyword arguments:
+        file_name -- path of the SQL file
+
+        Returns path of the directory that contains the resulting files.
+    """
+    def find_tables(dump_filename):
+        table_list = []
+        with open(dump_filename, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line.lower().startswith('create table'):
+                    table_name = re.findall('create table `([\w_]+)`', line.lower())
+                    table_list.extend(table_name)
+        return table_list
+
+
+    def read_dump(dump_filename : str, output_dir : str, target_table : str) -> None:
+        column_names = []
+        rows = []
+        read_mode = 0 # 0 - skip, 1 - header, 2 - data
+        with open(dump_filename, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line.lower().startswith('insert') and target_table in line:
+                    read_mode = 2
+                if line.lower().startswith('create table') and target_table in line:
+                    read_mode = 1
+                    continue
+                if read_mode == 0:
+                    continue
+
+                # Filling up the headers
+                elif read_mode == 1:
+                    if line.lower().startswith('primary'):
+                        # add more conditions here for different cases 
+                        #(e.g. when simply a key is defined, or no key is defined)
+                        read_mode = 0
+                        continue
+                    colheader = re.findall('`([\w_]+)`', line)
+                    #column_names = []
+                    for col in colheader:
+                        column_names.append(col.strip())
+
+                elif read_mode == 2:
+                    if line.endswith(";"):
+                        end_index=-1
+                    else:
+                        end_index=0
+                    data = ast.literal_eval(line[line.find("VALUES")+7:end_index])
+                    try:
+                        for item in data:
+                            row = {}
+                            for key, value in zip(column_names, item):
+                                row[key]=value
+                            rows.append(row)
+                    except IndexError:
+                        pass
+                    if line.endswith(';'):
+                        df = pd.DataFrame(rows, columns=column_names)
+                        break
+        df.to_csv(os.path.join(output_dir, target_table+".csv"), index=False)
+
+    output_dir = os.path.join(os.path.dirname(file_name), "extracted")
+    os.makedirs(output_dir, exist_ok=False)
+    table_list = find_tables(file_name)
+    if len(table_list) > 0:
+        for table in table_list:
+            read_dump(file_name, output_dir, table)
+    return output_dir
