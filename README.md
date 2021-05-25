@@ -98,7 +98,6 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | Additional 2 | Done | Predicting the Type and Target of Offensive Posts in Social Media | Zampieri2019 |
 
 ### More datasets we should also include:
-* http://www.ub-web.de/research/resources/wow_anonymized.zip
 * http://www.ub-web.de/research/resources/lol_anonymized.zip
   * both using https://github.com/julian-risch/toxic-comment-collection/blob/main/sql_dump_to_csv.py
 
