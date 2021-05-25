@@ -775,6 +775,22 @@
           "offensive"
         ]
       }
+    },
+    "bretschneider2016de_wow.csv": {
+      "translation": {
+        "offensive": [
+          "offensive"
+        ]
+      },
+      "download": true
+    },
+    "bretschneider2016de_lol.csv": {
+      "translation": {
+        "offensive": [
+          "offensive"
+        ]
+      },
+      "download": true
     }
   },
   "data_sources": {
@@ -884,6 +900,18 @@
       "download": true
     },
     "zampieri2019": {
+      "download": true
+    },
+    "mubarak2017twitter": {
+      "download": true
+    },
+    "mubarak2017aljazeera": {
+      "download": true
+    },
+    "bretschneider2016wow": {
+      "download": true
+    },
+    "bretschneider2016lol": {
       "download": true
     }
   }

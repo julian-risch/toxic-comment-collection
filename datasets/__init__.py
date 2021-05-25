@@ -36,6 +36,7 @@ from . import novak2021
 from . import kumar2018
 from . import zampieri2019
 from . import bretschneider2016wow
+from . import bretschneider2016lol
 
 def get_datasets():
     return [
@@ -77,4 +78,5 @@ def get_datasets():
         kumar2018.Kumar2018(),
         zampieri2019.Zampieri2019(),
         bretschneider2016wow.Bretschneider2016wow(),
+        bretschneider2016lol.Bretschneider2016lol(),
     ]

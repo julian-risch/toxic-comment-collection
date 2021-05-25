@@ -1,19 +1,18 @@
 from . import dataset
 import os
 from . import helpers
-import math
 
-class Bretschneider2016wow(dataset.Dataset):
+class Bretschneider2016lol(dataset.Dataset):
     
-    name = "bretschneider2016wow"
-    url = "http://www.ub-web.de/research/resources/wow_anonymized.zip"
-    hash = "0f5d67879306cd67154c31583b6e8750b9290f54c0065cc8cdf11ab6a8d1a26d"
+    name = "bretschneider2016lol"
+    url = "http://ub-web.de/research/resources/lol_anonymized.zip"
+    hash = "901e0d51428f34b94bf6b3f59b0e9cf71dabe94fc74fd81fd1e9be199d2902bc"
     files = [
         {
-            "name": "bretschneider2016de_wow.csv",
+            "name": "bretschneider2016de_lol.csv",
             "language": "de",
             "type": "training",
-            "platform": "World of Warcraft"
+            "platform": "League of Legends"
         }
     ]
     comment = """ """
@@ -22,9 +21,9 @@ class Bretschneider2016wow(dataset.Dataset):
     @classmethod
     def process(cls, tmp_file_path, dataset_folder, temp_folder):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
-        tmp_file_path = helpers.extract_sql_tables(os.path.join(tmp_file_path, "wow_anonymized.sql"))
+        tmp_file_path = helpers.extract_sql_tables(os.path.join(tmp_file_path, "lol_anonymized.sql"))
         tmp_file_path = helpers.join_csvs(os.path.join(tmp_file_path, "posts.csv"), ["topic_id", "post_number"], os.path.join(tmp_file_path, "annotations.csv"), ["topic_id", "post_number"], how='left')
-        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "bretschneider2016de_wow.csv"))
+        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "bretschneider2016de_lol.csv"))
 
     @classmethod
     def unify_row(cls, row):
