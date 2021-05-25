@@ -109,3 +109,6 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
   * none,normal,other,positive,appropriate -> non-toxic
   * idk/skip -> discard 
   * rest -> toxic
+* Update setup steps in README.md, e.g., Twitter API Keys are not part of ```config.json``` anymore
+* List detailed steps needed to add a dataset in the readme
+  * Add class, add import statement, generate new config, etc. 
