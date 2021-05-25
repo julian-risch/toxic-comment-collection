@@ -97,9 +97,8 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | Additional 1 | Done | Aggression Detection on Social Media Text Using Deep Neural Networks | Kumar2018 |
 | Additional 2 | Done | Predicting the Type and Target of Offensive Posts in Social Media | Zampieri2019 |
 
-### More datasets we should also include:
-* http://www.ub-web.de/research/resources/lol_anonymized.zip
-  * both using https://github.com/julian-risch/toxic-comment-collection/blob/main/sql_dump_to_csv.py
+<!--- ### More datasets we should also include: --->
+
 
 ### Further ToDos
 * Make sure that the script does not fail if api_config is empty -> download datasets that don't need Twitter API
