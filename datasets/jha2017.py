@@ -21,7 +21,7 @@ class Jha2017(dataset.Dataset):
     license = """ """
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
         benevolent_file = os.path.join(tmp_file_path, "NLP_CSS_2017-master/benevolent_sexist.tsv")
         hostile_file = os.path.join(tmp_file_path, "NLP_CSS_2017-master/hostile_sexist.tsv")

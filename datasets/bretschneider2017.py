@@ -20,7 +20,7 @@ class Bretschneider2017(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
         file1 = os.path.join(tmp_file_path, "fb_hate_speech_csv/comments.csv")
         file2 = os.path.join(tmp_file_path, "fb_hate_speech_csv/annotated_comments.csv")

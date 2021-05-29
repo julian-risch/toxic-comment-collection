@@ -22,7 +22,7 @@ Aggressiveness- if HS occurs (i.e. the value for  the  feature  HS  is  1),  a  
     license = """"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.clean_csv(tmp_file_path, sep='\t')
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "basile2019en.csv"))
 

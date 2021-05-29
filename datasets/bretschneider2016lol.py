@@ -19,7 +19,7 @@ class Bretschneider2016lol(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
         tmp_file_path = helpers.extract_sql_tables(os.path.join(tmp_file_path, "lol_anonymized.sql"))
         tmp_file_path = helpers.join_csvs(os.path.join(tmp_file_path, "posts.csv"), ["topic_id", "post_number"], os.path.join(tmp_file_path, "annotations.csv"), ["topic_id", "post_number"], how='left')

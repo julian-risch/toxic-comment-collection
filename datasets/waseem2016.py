@@ -20,7 +20,7 @@ class Waseem2016(dataset.Dataset):
     license = """ """
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.clean_csv(tmp_file_path, ["twitter_ids", "tag"])
         tmp_file_path = helpers.download_tweets_for_csv(tmp_file_path, "twitter_ids")
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "waseem2016en.csv"))

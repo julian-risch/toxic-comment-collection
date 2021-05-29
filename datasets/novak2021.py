@@ -19,7 +19,7 @@ class Novak2021(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.download_tweets_for_csv(tmp_file_path, "ID")
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "novak2021sl.csv"))
 

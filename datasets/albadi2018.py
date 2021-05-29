@@ -25,7 +25,7 @@ class Albadi2018(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         file_dir = helpers.unzip_file(tmp_file_path)
         train_file = helpers.download_tweets_for_csv(os.path.join(file_dir, "Arabic_hatespeech-master/train.csv"), "id")
         test_file = helpers.download_tweets_for_csv(os.path.join(file_dir, "Arabic_hatespeech-master/test.csv"), "id")

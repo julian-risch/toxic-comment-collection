@@ -20,7 +20,7 @@ class Chung2019(dataset.Dataset):
     license = """This resource can be used for research purposes. Please cite the publication above if you use it."""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         with open(tmp_file_path, "r") as f:
             a = json.load(f)
         b = pd.DataFrame(a['conan'])

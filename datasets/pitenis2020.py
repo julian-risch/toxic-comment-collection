@@ -19,7 +19,7 @@ class Pitenis2020(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         extracted_file_path = helpers.unzip_file(tmp_file_path)
         file1 = helpers.clean_csv(os.path.join(extracted_file_path, "offenseval-gr-testsetv1/offenseval-gr-labela-v1.csv"), names=["lid", "category"])
         file2 = helpers.clean_csv(os.path.join(extracted_file_path, "offenseval-gr-testsetv1/offenseval-gr-test-v1.tsv"), names=["rid", "tweet"], sep="\t", header=0)

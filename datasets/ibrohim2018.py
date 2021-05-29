@@ -20,7 +20,7 @@ class Ibrohim2018(dataset.Dataset):
     license = """This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "ibrohim2018id.csv"))
 
     @classmethod

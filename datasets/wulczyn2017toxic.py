@@ -26,7 +26,7 @@ class Wulczyn2017toxic(dataset.Dataset):
         return
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
         file1 = helpers.clean_csv(os.path.join(tmp_file_path, "toxicity_annotated_comments.tsv"), sep="\t")
         file2 = helpers.clean_csv(os.path.join(tmp_file_path, "toxicity_annotations.tsv"), sep="\t")

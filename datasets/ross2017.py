@@ -19,7 +19,7 @@ class Ross2017(dataset.Dataset):
     license = """UNKNOWN"""
     
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "ross2018de.csv"))
 
     @classmethod

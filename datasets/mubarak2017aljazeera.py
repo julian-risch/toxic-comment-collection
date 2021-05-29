@@ -1,7 +1,5 @@
-from . import dataset
 import os
-import pandas as pd
-from io import BytesIO
+from . import dataset
 from . import helpers
 
 class Mubarak2017aljazeera(dataset.Dataset):
@@ -24,7 +22,7 @@ class Mubarak2017aljazeera(dataset.Dataset):
     license = """ """
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.convert_excel_to_csv(tmp_file_path)
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "mubarak2017ar_aljazeera.csv"))
 

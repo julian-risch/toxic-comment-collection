@@ -20,7 +20,7 @@ class Coltekin2019(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         zip_file_path = helpers.unzip_file(tmp_file_path)
         file1 = os.path.join(zip_file_path, "offenseval2020-turkish/offenseval-tr-testset-v1/offenseval-tr-labela-v1.tsv")
         file1 = helpers.clean_csv(file1, sep=",", names=["lid", "class"])

@@ -19,7 +19,7 @@ class Elsherief2018(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
 
         base_path = os.path.join(tmp_file_path, "hate_speech_icwsm18-master")        

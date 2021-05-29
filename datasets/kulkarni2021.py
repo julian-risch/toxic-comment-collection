@@ -20,7 +20,7 @@ class Kulkarni2021(dataset.Dataset):
     license = """"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "kulkarni2021mr.csv"))
 
     @classmethod

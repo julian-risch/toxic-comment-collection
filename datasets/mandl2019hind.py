@@ -20,7 +20,7 @@ class Mandl2019hind(dataset.Dataset):
     license = """ """
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
         file1 = helpers.clean_csv(os.path.join(tmp_file_path, "hindi_dataset/hindi_dataset.tsv"), sep='\t')
         file2 = helpers.clean_csv(os.path.join(tmp_file_path, "hindi_dataset/hasoc2019_hi_test_gold_2919.tsv"), sep='\t')

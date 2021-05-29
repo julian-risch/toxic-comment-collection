@@ -19,7 +19,7 @@ class Sigurbergsson2019(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         # read write to convert csv seperator to ","
         helpers.untarbz_file(tmp_file_path)
         tmp_file_path = os.path.join(os.path.dirname(tmp_file_path), "dkhate/oe20da_data/offenseval-da-training-v1.tsv")

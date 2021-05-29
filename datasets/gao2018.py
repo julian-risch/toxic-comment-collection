@@ -42,7 +42,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE."""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.convert_jsonl_to_csv(tmp_file_path)
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "gao2018en.csv"))
 

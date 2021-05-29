@@ -153,11 +153,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 
 ### Further ToDos
 * Make sure that the script does not fail if api_config is empty -> download datasets that don't need Twitter API
-* Execute process method for each dataset right after downloading (only once). only unify is executed every time so that the user can try out different mappings
 * Multilingual experiments: shuffle combined.tsv and split into train/test set; use binary label mapping and train xlm-roberta-base model
   * none,normal,other,positive,appropriate -> non-toxic
   * idk/skip -> discard 
   * rest -> toxic
-* Update setup steps in README.md, e.g., Twitter API Keys are not part of ```config.json``` anymore
-* List detailed steps needed to add a dataset in the readme
-  * Add class, add import statement, generate new config, etc. 

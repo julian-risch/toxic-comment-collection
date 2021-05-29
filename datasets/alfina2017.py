@@ -1,7 +1,6 @@
 from . import dataset
 import os
 from . import helpers
-import pandas as pd
 
 class Alfina2017(dataset.Dataset):
     
@@ -21,7 +20,7 @@ class Alfina2017(dataset.Dataset):
 Ika Alfina, Rio Mulia, Mohamad Ivan Fanany, and Yudo Ekanata, "Hate Speech Detection in Indonesian Language: A Dataset and Preliminary Study ", in Proceeding of 9th International Conference on Advanced Computer Science and Information Systems 2017(ICACSIS 2017). """
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.clean_csv(tmp_file_path, sep="\t")
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "alfina2017id.csv"))
 

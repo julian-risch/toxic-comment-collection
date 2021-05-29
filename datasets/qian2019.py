@@ -26,7 +26,7 @@ class Qian2019(dataset.Dataset):
     license = """ """
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
         helpers.copy_file(os.path.join(tmp_file_path, "A-Benchmark-Dataset-for-Learning-to-Intervene-in-Online-Hate-Speech-master/data/gab.csv"), os.path.join(dataset_folder, "qian2019en_gab.csv"))
         helpers.copy_file(os.path.join(tmp_file_path, "A-Benchmark-Dataset-for-Learning-to-Intervene-in-Online-Hate-Speech-master/data/reddit.csv"), os.path.join(dataset_folder, "qian2019en_reddit.csv"))

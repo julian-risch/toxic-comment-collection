@@ -19,7 +19,7 @@ class Zampieri2019(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.clean_csv(tmp_file_path, sep="\t")
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "zampieri2019en.csv"))
 

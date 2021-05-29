@@ -36,7 +36,7 @@ a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA."""
         return output_file
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         extraction_dir = helpers.unzip_file(tmp_file_path)
         tmp_file_path = cls.merge_txt_to_csv(os.path.join(extraction_dir, "hate-speech-dataset-master"))
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "gibert2018en.csv"))

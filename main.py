@@ -21,8 +21,8 @@ def main(args):
         exit()
 
     try:
-        arguments = dict(getopt.getopt(args, "-r -? -s -g -u -c -d", [
-                         'reset', 'help', 'statistics', 'genconfig', 'skipUnify', 'skipCombine', 'skipDownload'])[0])
+        arguments = dict(getopt.getopt(args, "-r -? -s -g -c -d", [
+                         'reset', 'help', 'statistics', 'genconfig', 'skipCombine', 'skipDownload'])[0])
     except:
         print("Invalid argument!\n")
         print_help()
@@ -46,11 +46,11 @@ def main(args):
 
     if not ("--skipDownload" in arguments or "-d" in arguments):
         max_suffix_length = download_datasets(config)
+        max_suffix_length = process_datasets(config, max_suffix_length)
     else:
         max_suffix_length = 0
 
-    unify = not( "--skipUnify" in arguments or "-u" in arguments)
-    process_datasets(config, unify_format=unify, max_suffix_length=max_suffix_length)
+    max_suffix_length = unify_datasets(config, max_suffix_length)
 
     if not ("--skipCombine" in arguments or "-c" in arguments):
         combine_datasets(config["file_directory"])
@@ -94,31 +94,40 @@ def combine_datasets(filedir, output_file_name="combined.tsv"):
     combined_df.to_csv(output_file, index_label="id",
                        quoting=csv.QUOTE_NONNUMERIC, sep="\t")
 
-
-def process_datasets(config, unify_format=True, max_suffix_length=0):
+def unify_datasets(config, max_suffix_length=0):
     _clear_directory(config["file_directory"])
 
     for idx, dataset in enumerate(datasets.get_datasets()):
+        max_suffix_length = _print_progress_bar(idx + len(datasets.get_datasets()) *2, len(datasets.get_datasets()) * 3, "Unify " + dataset.name, max_suffix_length)
+        
+        for ds_file in dataset.files:
+            helpers.copy_file(os.path.join(config["raw_directory"], dataset.name + "_dir", ds_file["name"]), os.path.join(config["file_directory"], dataset.name, ds_file["name"]))
+        
+        dataset.unify(os.path.join(config["file_directory"], dataset.name))
+
+
+    _print_progress_bar(len(datasets.get_datasets()) *3, len(datasets.get_datasets()) *3, "Done", max_suffix_length)
+    return max_suffix_length
+
+def process_datasets(config, max_suffix_length=0):
+    for idx, dataset in enumerate(datasets.get_datasets()):
         max_suffix_length = _print_progress_bar(
-            idx + len(datasets.get_datasets()), len(datasets.get_datasets()) * 2, "Process " + dataset.name, max_suffix_length)
+            idx + len(datasets.get_datasets()), len(datasets.get_datasets()) * 3, "Process " + dataset.name, max_suffix_length)
 
         _clear_directory(config["temp_directory"])
         tmp_file_name = os.path.join(config["temp_directory"], dataset.name)
         helpers.copy_file(os.path.join(config["raw_directory"], dataset.name), tmp_file_name)
-        dataset.process(tmp_file_name, os.path.join(config["file_directory"], dataset.name), config["temp_directory"])
-
-        if unify_format:
-            dataset.unify(os.path.join(config["file_directory"], dataset.name))
-
-    _print_progress_bar(len(datasets.get_datasets()), len(
-        datasets.get_datasets()), "Done", max_suffix_length)
+        
+        dataset.process(tmp_file_name, os.path.join(config["raw_directory"], dataset.name + "_dir"))
+    
+    return max_suffix_length
 
 def download_datasets(config, max_suffix_length=0) -> int:
     _clear_directory(config["raw_directory"])
 
     for idx, dataset in enumerate(datasets.get_datasets()):
         max_suffix_length = _print_progress_bar(
-            idx, len(datasets.get_datasets()) * 2, "Download " + dataset.name, max_suffix_length)
+            idx, len(datasets.get_datasets()) * 3, "Download " + dataset.name, max_suffix_length)
 
         if config["data_sources"].get(dataset.name, True):
             file = dataset.download(os.path.join(config["raw_directory"], dataset.name))

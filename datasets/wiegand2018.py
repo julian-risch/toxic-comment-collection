@@ -21,7 +21,7 @@ class Wiegand2018(dataset.Dataset):
 Michael Wiegand, Melanie Siegel, and Josef Ruppenhofer: "Overview of the GermEval 2018 Shared Task on the Identification of Offensive Language", in Proceedings of the GermEval, 2018, Vienna, Austria."""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.clean_csv(tmp_file_path, names=["text","tag1", "tag2"], sep='\t')
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "wiegand2018de.csv"))
 

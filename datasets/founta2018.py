@@ -20,7 +20,7 @@ class Founta2018(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.clean_csv(tmp_file_path, names=["tweet", "class"])
         tmp_file_path = helpers.download_tweets_for_csv(tmp_file_path, "tweet")
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "founta2018en.csv"))

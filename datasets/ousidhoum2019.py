@@ -68,7 +68,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_dir_path = helpers.unzip_file(tmp_file_path)
         helpers.copy_file(os.path.join(tmp_dir_path, "hate_speech_mlma/ar_dataset.csv"), os.path.join(dataset_folder, "ousidhoum2019ar.csv"))
         helpers.copy_file(os.path.join(tmp_dir_path, "hate_speech_mlma/en_dataset.csv"), os.path.join(dataset_folder, "ousidhoum2019en.csv"))

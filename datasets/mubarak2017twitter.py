@@ -22,7 +22,7 @@ class Mubarak2017twitter(dataset.Dataset):
     license = """UNKNOWN"""
 
     @classmethod
-    def process(cls, tmp_file_path, dataset_folder, temp_folder):
+    def process(cls, tmp_file_path, dataset_folder):
         tmp_file_path = helpers.convert_excel_to_csv(tmp_file_path)
         helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "mubarak2017ar_twitter.csv"))
 
