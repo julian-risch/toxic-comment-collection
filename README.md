@@ -6,23 +6,74 @@
   ```bash
   pip install -r requirements.txt
   ```
-- Complete the upper part of the ```config.json``` with your Twitter API Keys
+- Complete the upper part of the ```api_config.json``` with your Twitter API Keys. Without the keys some datasets can't be downloaded.
+  ```json
+  {
+    "twitter": {
+      "consumer_key": "",
+      "consumer_secret": "",
+      "access_token": "",
+      "access_token_secret": ""
+    }
+  }
   ```
-  ...
-  "twitter": {
-    "consumer_key": "<KEY>",
-    "consumer_secret": "<KEY>",
-    "access_token": "<KEY>",
-    "access_token_secret": "<KEY>"
-  },
-  ...
-  ```
-- Run the script to fetch the datasets:
+
+- Run the script to fetch the datasets. Due to access limitations to the twitter API it might happen that there is no visible progresse for ~10 minutes.
   ```
   python3 main.py
   ```
 
+- Use the following command to get further information on the accessible arguments:
+
+  ```
+  python3 main.py --help
+  ```
+
 The downloaded Files can be found in the subdirectory defined in ```config.json``` as ```file_directory```.
+
+## Add a new Dataset
+- Create a new file in the ```datasets``` folder with the following naming scheme:
+  ```
+  <paper_author><paper_year><suffix (for duplicate file names)>.py
+  ```
+- Complete the content of the file like in the following example:
+  ```python
+  import os
+  from . import dataset
+  from . import helpers
+  
+  class Mubarak2017aljazeera(dataset.Dataset):
+
+      name = "mubarak2017aljazeera"
+      url = "http://alt.qcri.org/~hmubarak/offensive/AJCommentsClassification-CF.xlsx"
+      hash = "afa00e36ff5492c1bbdd42a0e4979886f40d00f1aa5517807a957e22fb517670"
+      files = [
+          {
+              "name": "mubarak2017ar_aljazeera.csv",
+              "language": "ar",
+              "type": "training",
+              "platform": "twitter"
+          }
+      ]
+      comment = """Annotation	Meaning
+                    0	NORMAL_LANGUAGE
+                   -1	OFFENSIVE_LANGUAGE
+                   -2	OBSCENE_LANGUAGE"""
+
+      license = """ """
+  ```
+
+- Overwrite the methods ```process``` and ```unify_row``` from the parent class (```dataset.Dataset```) to implement unpack and process the downloaded files. You might use methods from ```datasets/helpers.py```
+- The resulting ```.csv``` should have the following columns:
+  - id (added automatically)
+  - text
+  - labels
+- Add the newly created file and class to ```datasets/helpers.py```. (```import``` + ```get_datasets()``` method.)
+- Run the following command and answer everything with "n" to update ```config.json```:
+  ```
+  python main.py --genconfig
+  ```
+- We are happy to adopt your changes. Just create a pull request from your fork to this repository.
 
 ## Status
 The following Datasets have been included in this project  
