@@ -111,8 +111,8 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 27 | E-Mail required | A Large Labeled Corpus for Online Harassment Research |  |
 | 28 | Done | Ex Machina: Personal Attacks Seen at Scale, Personal attacks | Wulczyn2017attack |
 | 29 | Done | Ex Machina: Personal Attacks Seen at Scale, Toxicity | Wulczyn2017toxic |
-| 30 | Postponed (sql file) | Detecting cyberbullying in online communities (World of Warcraft) |  |
-| 31 | Postponed (sql file) | Detecting cyberbullying in online communities (League of Legends) |  |
+| 30 | Done | Detecting cyberbullying in online communities (World of Warcraft) |  |
+| 31 | Done | Detecting cyberbullying in online communities (League of Legends) |  |
 | 32 | E-Mail required | A Qality Type-aware Annotated Corpus and Lexicon for Harassment Research | Rezvan2018 |
 | 33 | Done | Ex Machina: Personal Attacks Seen at Scale, Aggression and Friendliness | Wulczyn2017aggressive |
 | 34 | Done | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
