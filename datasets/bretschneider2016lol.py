@@ -9,8 +9,8 @@ class Bretschneider2016lol(dataset.Dataset):
     hash = "901e0d51428f34b94bf6b3f59b0e9cf71dabe94fc74fd81fd1e9be199d2902bc"
     files = [
         {
-            "name": "bretschneider2016de_lol.csv",
-            "language": "de",
+            "name": "bretschneider2016en_lol.csv",
+            "language": "en",
             "type": "training",
             "platform": "League of Legends"
         }
@@ -23,7 +23,7 @@ class Bretschneider2016lol(dataset.Dataset):
         tmp_file_path = helpers.unzip_file(tmp_file_path)
         tmp_file_path = helpers.extract_sql_tables(os.path.join(tmp_file_path, "lol_anonymized.sql"))
         tmp_file_path = helpers.join_csvs(os.path.join(tmp_file_path, "posts.csv"), ["topic_id", "post_number"], os.path.join(tmp_file_path, "annotations.csv"), ["topic_id", "post_number"], how='left')
-        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "bretschneider2016de_lol.csv"))
+        helpers.copy_file(tmp_file_path, os.path.join(dataset_folder, "bretschneider2016en_lol.csv"))
 
     @classmethod
     def unify_row(cls, row):

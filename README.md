@@ -145,7 +145,7 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 61 |  |  |  |
 | 62 | Data not found | hatEval, SemEval-2019 Task 5: Multilingual Detection of Hate Speech Against Immigrants and Women in Twitter (Spanish) |  |
 | 63 | Done | A Corpus of Turkish Offensive Language on Social Media | Coltekin2019 |
-| Additional 1 | Done | Aggression Detection on Social Media Text Using Deep Neural Networks | Kumar2018 |
+| Additional 1 | Done | Aggression-annotated corpus of hindi-english code-mixed data | Kumar2018 |
 | Additional 2 | Done | Predicting the Type and Target of Offensive Posts in Social Media | Zampieri2019 |
 
 <!--- ### More datasets we should also include: --->
