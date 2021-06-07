@@ -1,4 +1,10 @@
-# toxic-comment-collection
+# Data Integration for Toxic Comment Classification: Making More Than 40 Datasets Easily Accessible in One Unified Format
+
+This repository contains the code of our paper [**Data Integration for Toxic Comment Classification:
+Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://hpi.de/fileadmin/user_upload/fachgebiete/naumann/people/risch/risch2021data.pdf)  accepted for publication at this year's ACL workshop on Online Abuse and Harms (WOAH).
+
+We present a collection of more than 40 datasets in the form of a software tool that automatizes downloading and processing of the data and presents them in a unified data format that also offers a mapping of compatible class labels.
+Another advantage of that tool is that it gives an overview of properties of available datasets, such as different languages, platforms, and class labels to make it easier to select suitable training and test data for toxic comment classification.
 
 ## Setup
 - Clone this repository
@@ -18,7 +24,7 @@
   }
   ```
 
-- Run the script to fetch the datasets. Due to access limitations to the twitter API it might happen that there is no visible progresse for ~10 minutes.
+- Run the script to fetch the datasets. Due to access limitations to the twitter API it might happen that there is no visible progress for ~10 minutes as the program pauses and then continues automatically.
   ```
   python3 main.py
   ```
@@ -31,7 +37,18 @@
 
 The downloaded Files can be found in the subdirectory defined in ```config.json``` as ```file_directory```.
 
-## Add a new Dataset
+## Citation
+If you use our work, please cite our paper [**Data Integration for Toxic Comment Classification:
+Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://hpi.de/fileadmin/user_upload/fachgebiete/naumann/people/risch/risch2021data.pdf) that has been accepted for publication at this year's ACL workshop on Online Abuse and Harms (WOAH) as follows:
+
+    @inproceedings{risch2021data,
+    title = {Data Integration for Toxic Comment Classification: Making More Than 40 Datasets Easily Accessible in One Unified Format},
+    author = {Risch, Julian and Schmidt, Philipp and Krestel, Ralf},
+    booktitle = {Proceedings of the 5th Workshop on Workshop on Online Abuse and Harms (WOAH@ACL)},
+    year = {2021}
+    }
+
+## Add a New Dataset
 - Create a new file in the ```datasets``` folder with the following naming scheme:
   ```
   <paper_author><paper_year><suffix (for duplicate file names)>.py
@@ -75,11 +92,8 @@ The downloaded Files can be found in the subdirectory defined in ```config.json`
   ```
 - We are happy to adopt your changes. Just create a pull request from your fork to this repository.
 
-## Status
-The following Datasets have been included in this project  
-leondz/hatespeechdata : https://github.com/leondz/hatespeechdata 
+## List of Datasets Included in the Collection
 
-(can be accessed via : http://ckan.hatespeechdata.com)
 |  # | State | Name | Class |
 |  - |:-----:| ---- | ----- |
 |  1 | Done | Are They our Brothers? Analysis and Detection of Religious Hate Speech in the Arabic Twittersphere | Albadi2018 |
@@ -111,8 +125,8 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 27 | E-Mail required | A Large Labeled Corpus for Online Harassment Research |  |
 | 28 | Done | Ex Machina: Personal Attacks Seen at Scale, Personal attacks | Wulczyn2017attack |
 | 29 | Done | Ex Machina: Personal Attacks Seen at Scale, Toxicity | Wulczyn2017toxic |
-| 30 | Postponed (sql file) | Detecting cyberbullying in online communities (World of Warcraft) |  |
-| 31 | Postponed (sql file) | Detecting cyberbullying in online communities (League of Legends) |  |
+| 30 | Done | Detecting cyberbullying in online communities (World of Warcraft) |  |
+| 31 | Done | Detecting cyberbullying in online communities (League of Legends) |  |
 | 32 | E-Mail required | A Qality Type-aware Annotated Corpus and Lexicon for Harassment Research | Rezvan2018 |
 | 33 | Done | Ex Machina: Personal Attacks Seen at Scale, Aggression and Friendliness | Wulczyn2017aggressive |
 | 34 | Done | CONAN - COunter NArratives through Nichesourcing: a Multilingual Dataset of Responses to Fight Online Hate Speech (English) | Chung2019 |
@@ -145,15 +159,5 @@ leondz/hatespeechdata : https://github.com/leondz/hatespeechdata
 | 61 |  |  |  |
 | 62 | Data not found | hatEval, SemEval-2019 Task 5: Multilingual Detection of Hate Speech Against Immigrants and Women in Twitter (Spanish) |  |
 | 63 | Done | A Corpus of Turkish Offensive Language on Social Media | Coltekin2019 |
-| Additional 1 | Done | Aggression-annotated corpus of hindi-english code-mixed data | Kumar2018 |
-| Additional 2 | Done | Predicting the Type and Target of Offensive Posts in Social Media | Zampieri2019 |
-
-<!--- ### More datasets we should also include: --->
-
-
-### Further ToDos
-* Make sure that the script does not fail if api_config is empty -> download datasets that don't need Twitter API
-* Multilingual experiments: shuffle combined.tsv and split into train/test set; use binary label mapping and train xlm-roberta-base model
-  * none,normal,other,positive,appropriate -> non-toxic
-  * idk/skip -> discard 
-  * rest -> toxic
+| 64 | Done | Aggression-annotated corpus of hindi-english code-mixed data | Kumar2018 |
+| 65 | Done | Predicting the Type and Target of Offensive Posts in Social Media | Zampieri2019 |
