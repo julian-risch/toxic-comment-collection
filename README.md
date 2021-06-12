@@ -44,7 +44,7 @@ Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://
     @inproceedings{risch2021data,
     title = {Data Integration for Toxic Comment Classification: Making More Than 40 Datasets Easily Accessible in One Unified Format},
     author = {Risch, Julian and Schmidt, Philipp and Krestel, Ralf},
-    booktitle = {Proceedings of the 5th Workshop on Workshop on Online Abuse and Harms (WOAH@ACL)},
+    booktitle = {Proceedings of the 5th Workshop on Online Abuse and Harms (WOAH@ACL)},
     year = {2021}
     }
 
