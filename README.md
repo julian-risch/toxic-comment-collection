@@ -161,3 +161,8 @@ Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://
 | 63 | Done | A Corpus of Turkish Offensive Language on Social Media | Coltekin2019 |
 | 64 | Done | Aggression-annotated corpus of hindi-english code-mixed data | Kumar2018 |
 | 65 | Done | Predicting the Type and Target of Offensive Posts in Social Media | Zampieri2019 |
+
+## Disclaimer
+This is a utility library that downloads and transforms publicly available datasets. We do not host or distribute these datasets, vouch for their quality or fairness, or claim that you have license to use them. It is your responsibility to determine whether you have permission to use the dataset under the dataset's license.
+
+If you wish to add, update or remove a dataset, please get in touch through a GitHub pull request.
