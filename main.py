@@ -81,16 +81,19 @@ def combine_datasets(filedir, output_file_name="combined.tsv"):
     combined_df = pd.DataFrame()
     for dataset in datasets.get_datasets():
         for ds_file in dataset.files:
-            df = pd.read_csv(os.path.join(
-                filedir, dataset.name, ds_file["name"]), sep="\t")
-            df.insert(loc=0, column="file_name", value=[
-                      ds_file["name"]] * df.count().max())
-            df.insert(loc=0, column="file_language", value=[
-                      ds_file["language"]] * df.count().max())
-            df.insert(loc=0, column="file_platform", value=[
-                      ds_file["platform"]] * df.count().max())
-            df.drop(columns=["id"], inplace=True)
-            combined_df = combined_df.append(df)
+            try:
+                df = pd.read_csv(os.path.join(
+                    filedir, dataset.name, ds_file["name"]), sep="\t")
+                df.insert(loc=0, column="file_name", value=[
+                        ds_file["name"]] * df.count().max())
+                df.insert(loc=0, column="file_language", value=[
+                        ds_file["language"]] * df.count().max())
+                df.insert(loc=0, column="file_platform", value=[
+                        ds_file["platform"]] * df.count().max())
+                df.drop(columns=["id"], inplace=True)
+                combined_df = combined_df.append(df)
+            except:
+                print("Could not add {0} to the combined dataset. Continuing with next file.".format(ds_file["name"]))
     combined_df.to_csv(output_file, index_label="id",
                        quoting=csv.QUOTE_NONNUMERIC, sep="\t")
 
@@ -100,10 +103,13 @@ def unify_datasets(config, max_suffix_length=0):
     for idx, dataset in enumerate(datasets.get_datasets()):
         max_suffix_length = _print_progress_bar(idx + len(datasets.get_datasets()) *2, len(datasets.get_datasets()) * 3, "Unify " + dataset.name, max_suffix_length)
         
-        for ds_file in dataset.files:
-            helpers.copy_file(os.path.join(config["raw_directory"], dataset.name + "_dir", ds_file["name"]), os.path.join(config["file_directory"], dataset.name, ds_file["name"]))
-        
-        dataset.unify(os.path.join(config["file_directory"], dataset.name))
+        try:
+            for ds_file in dataset.files:
+                helpers.copy_file(os.path.join(config["raw_directory"], dataset.name + "_dir", ds_file["name"]), os.path.join(config["file_directory"], dataset.name, ds_file["name"]))
+            
+            dataset.unify(os.path.join(config["file_directory"], dataset.name))
+        except:
+            print("\nCould not unify {0}. Continuing with next dataset.".format(dataset.name))
 
 
     _print_progress_bar(len(datasets.get_datasets()) *3, len(datasets.get_datasets()) *3, "Done", max_suffix_length)
@@ -118,7 +124,10 @@ def process_datasets(config, max_suffix_length=0):
         tmp_file_name = os.path.join(config["temp_directory"], dataset.name)
         helpers.copy_file(os.path.join(config["raw_directory"], dataset.name), tmp_file_name)
         
-        dataset.process(tmp_file_name, os.path.join(config["raw_directory"], dataset.name + "_dir"))
+        try:
+            dataset.process(tmp_file_name, os.path.join(config["raw_directory"], dataset.name + "_dir"))
+        except:
+            print("\nError while processing {0}. Continuing with next one.".format(dataset.name))
     
     return max_suffix_length
 
