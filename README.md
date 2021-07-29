@@ -1,6 +1,6 @@
 # Toxic Comment Classification: Making More Than 40 Datasets Easily Accessible in One Unified Format
 
-This repository contains the code of our paper [**Data Integration for Toxic Comment Classification:
+This repository contains the code of our paper [**Toxic Comment Classification:
 Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://hpi.de/fileadmin/user_upload/fachgebiete/naumann/people/risch/risch2021data.pdf)  accepted for publication at this year's ACL workshop on Online Abuse and Harms (WOAH).
 
 We present a collection of more than 40 datasets in the form of a software tool that automatizes downloading and processing of the data and presents them in a unified data format that also offers a mapping of compatible class labels.
@@ -38,7 +38,7 @@ Another advantage of that tool is that it gives an overview of properties of ava
 The downloaded Files can be found in the subdirectory defined in ```config.json``` as ```file_directory```.
 
 ## Citation
-If you use our work, please cite our paper [**Data Integration for Toxic Comment Classification:
+If you use our work, please cite our paper [**Toxic Comment Classification:
 Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://hpi.de/fileadmin/user_upload/fachgebiete/naumann/people/risch/risch2021data.pdf) that has been accepted for publication at this year's ACL workshop on Online Abuse and Harms (WOAH) as follows:
 
     @inproceedings{risch-etal-2021-toxic,
