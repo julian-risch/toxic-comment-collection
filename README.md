@@ -41,11 +41,17 @@ The downloaded Files can be found in the subdirectory defined in ```config.json`
 If you use our work, please cite our paper [**Data Integration for Toxic Comment Classification:
 Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://hpi.de/fileadmin/user_upload/fachgebiete/naumann/people/risch/risch2021data.pdf) that has been accepted for publication at this year's ACL workshop on Online Abuse and Harms (WOAH) as follows:
 
-    @inproceedings{risch2021data,
-    title = {Data Integration for Toxic Comment Classification: Making More Than 40 Datasets Easily Accessible in One Unified Format},
-    author = {Risch, Julian and Schmidt, Philipp and Krestel, Ralf},
-    booktitle = {Proceedings of the 5th Workshop on Online Abuse and Harms (WOAH@ACL)},
-    year = {2021}
+    @inproceedings{risch-etal-2021-toxic,
+    title = "Toxic Comment Collection: Making More Than 30 Datasets Easily Accessible in One Unified Format",
+    author = "Risch, Julian and Schmidt, Philipp and Krestel, Ralf",
+    booktitle = "Proceedings of the Workshop on Online Abuse and Harms (WOAH)",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.woah-1.17",
+    doi = "10.18653/v1/2021.woah-1.17",
+    pages = "157--163",
     }
 
 ## Add a New Dataset
