@@ -151,10 +151,7 @@ Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://
   - text
   - labels
 - Add the newly created file and class to ```datasets/helpers.py```. (```import``` + ```get_datasets()``` method.)
-- Run the following command and answer everything with "n" to update ```config.json```:
-  ```
-  python main.py --genconfig
-  ```
+- Make sure to update ```config.json``` to include the mapping of the labels of the new dataset to a common subset of the other datasets in the collection.
 - We are happy to adopt your changes. Just create a pull request from your fork to this repository.
 
 ## List of Datasets Included in the Collection
