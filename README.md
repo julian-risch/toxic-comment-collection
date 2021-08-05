@@ -7,12 +7,35 @@ We present a collection of more than 40 datasets in the form of a software tool 
 Another advantage of that tool is that it gives an overview of properties of available datasets, such as different languages, platforms, and class labels to make it easier to select suitable training and test data for toxic comment classification.
 
 ## Setup
-- Clone this repository
-- Install dependencies
-  ```bash
-  pip install -r requirements.txt
-  ```
-- Complete the upper part of the ```api_config.json``` with your Twitter API Keys. Without the keys some datasets can't be downloaded.
+- Clone this repository and install via `pip install .`
+```
+ git clone git@github.com:julian-risch/toxic-comment-collection.git
+ cd toxic-comment-collection
+ pip install .
+```
+
+## Usage
+- Download individual datasets with the `get_dataset()` method into tab-separated files. A list of datasets is at the [bottom of this web page](https://github.com/julian-risch/toxic-comment-collection#list-of-datasets-included-in-the-collection).
+```
+ from toxic_comment_collection import get_dataset
+ get_dataset('basile2019')
+```
+
+- It's a simple as that. You can now work with the dataset, for example, with pandas
+```
+ import pandas as pd
+ df = pd.read_csv("./files/basile2019/basile2019en.csv", sep="\t")
+ df.head()
+    id                                               text    labels
+ 0   0  Hurray, saving us $$$ in so many ways @potus @...  ['hate']
+ 1   1  Why would young fighting age men be the vast m...  ['hate']
+ 2   2  @KamalaHarris Illegals Dump their Kids at the ...  ['hate']
+ 3   3  NY Times: 'Nearly All White' States Pose 'an A...        []
+ 4   4  Orban in Brussels: European leaders are ignori...        []
+```
+- Some datasets require Twitter API credentials to be downloaded.
+Enter your Twitter API credentials in the file `./src/toxic_comment_collection/api_config.json`
+
   ```json
   {
     "twitter": {
@@ -24,22 +47,56 @@ Another advantage of that tool is that it gives an overview of properties of ava
   }
   ```
 
-- Run the script to fetch the datasets. Due to access limitations to the twitter API it might happen that there is no visible progress for ~10 minutes as the program pauses and then continues automatically.
-  ```
-  python3 main.py
-  ```
+- After filling out `api_config.json`, the `get_dataset()` method can use it as input:
+```
+ get_dataset('albadi2018', api_config_path='./src/toxic_comment_collection/api_config.json')
+ df = pd.read_csv("./files/albadi2018/albadi2018ar_train.csv", sep="\t")
+ df.head()
+    id                                               text    labels
+ 0   0  مؤسسة أرشيف المغرب تتسلم وثائق عن ذاكرة اليهود...  ['none']
+ 1   1  مفتي السعودية حماس إرهابية وقتال اليهود حرام ش...  ['none']
+ 2   2      أمراء ال سعود اليهود يخوضون حربا عن الصهيونيه  ['hate']
+ 3   3  تحميل كتاب مقارنة الأديان: اليهودية تأليف أحمد...  ['none']
+ 4   4  #هزه_ارضيه_في_جده\n\nهذه هيه الهزه الحقيقيه وت...  ['hate']
+```
 
-- Use the following command to get further information on the accessible arguments:
+- All datasets can be downloaded automatically, which will take some time. To respect rate limits of the Twitter API, the program might sleep for several minutes and then continue automatically.
+```
+ from toxic_comment_collection import get_all_datasets
+ get_all_datasets(api_config_path='./src/toxic_comment_collection/api_config.json')
+```
 
-  ```
-  python3 main.py --help
-  ```
+- After downloading all datasets, they can be combined into one large tab-separated file. To this end, the file `./src/toxic_comment_collection/config.json` defines the mappings of different labels to a common subset as described in our [paper](https://aclanthology.org/2021.woah-1.17/). Note that we skip downloading all datasets in the following command:
 
-The downloaded Files can be found in the subdirectory defined in ```config.json``` as ```file_directory```.
+```
+ get_all_datasets(config_path="./src/toxic_comment_collection/config.json", skip_download=True, api_config_path='./src/toxic_comment_collection/api_config.json')
+```
+
+- A summary of all downloaded datasets can be generated with the `generate_statistics()` method:
+
+```
+ from toxic_comment_collection import generate_statistics
+ generate_statistics('./files')
+```
+
+- It creates a file called `statistics.txt`:
+```
+######################
+# Overall Statistics #
+######################
+
+rows:       812094
+file size:  241226068
+labels:     
+    indirect:                        13479
+    none:                            471720
+    offensive:                       66742
+...
+```
 
 ## Citation
 If you use our work, please cite our paper [**Data Integration for Toxic Comment Classification:
-Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://hpi.de/fileadmin/user_upload/fachgebiete/naumann/people/risch/risch2021data.pdf) that has been accepted for publication at this year's ACL workshop on Online Abuse and Harms (WOAH) as follows:
+Making More Than 40 Datasets Easily Accessible in One Unified Format**](https://hpi.de/fileadmin/user_upload/fachgebiete/naumann/people/risch/risch2021data.pdf) that has been published at the ACL'21 Workshop on Online Abuse and Harms (WOAH) as follows:
 
     @inproceedings{risch-etal-2021-toxic,
     title = "Data Integration for Toxic Comment Classification: Making More Than 40 Datasets Easily Accessible in One Unified Format",
