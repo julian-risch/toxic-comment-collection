@@ -9,29 +9,29 @@ Another advantage of that tool is that it gives an overview of properties of ava
 ## Setup
 - Clone this repository and install via `pip install .`
 ```
- git clone git@github.com:julian-risch/toxic-comment-collection.git
- cd toxic-comment-collection
- pip install .
+git clone git@github.com:julian-risch/toxic-comment-collection.git
+cd toxic-comment-collection
+pip install .
 ```
 
 ## Usage
 - Download individual datasets with the `get_dataset()` method into tab-separated files. A list of datasets is at the [bottom of this web page](https://github.com/julian-risch/toxic-comment-collection#list-of-datasets-included-in-the-collection).
 ```
- from toxic_comment_collection import get_dataset
- get_dataset('basile2019')
+from toxic_comment_collection import get_dataset
+get_dataset('basile2019')
 ```
 
 - It's a simple as that. You can now work with the dataset, for example, with pandas
 ```
- import pandas as pd
- df = pd.read_csv("./files/basile2019/basile2019en.csv", sep="\t")
- df.head()
-    id                                               text    labels
- 0   0  Hurray, saving us $$$ in so many ways @potus @...  ['hate']
- 1   1  Why would young fighting age men be the vast m...  ['hate']
- 2   2  @KamalaHarris Illegals Dump their Kids at the ...  ['hate']
- 3   3  NY Times: 'Nearly All White' States Pose 'an A...        []
- 4   4  Orban in Brussels: European leaders are ignori...        []
+import pandas as pd
+df = pd.read_csv("./files/basile2019/basile2019en.csv", sep="\t")
+df.head()
+   id                                               text    labels
+0   0  Hurray, saving us $$$ in so many ways @potus @...  ['hate']
+1   1  Why would young fighting age men be the vast m...  ['hate']
+2   2  @KamalaHarris Illegals Dump their Kids at the ...  ['hate']
+3   3  NY Times: 'Nearly All White' States Pose 'an A...        []
+4   4  Orban in Brussels: European leaders are ignori...        []
 ```
 - Some datasets require Twitter API credentials to be downloaded.
 Enter your Twitter API credentials in the file `./src/toxic_comment_collection/api_config.json`
@@ -49,34 +49,34 @@ Enter your Twitter API credentials in the file `./src/toxic_comment_collection/a
 
 - After filling out `api_config.json`, the `get_dataset()` method can use it as input:
 ```
- get_dataset('albadi2018', api_config_path='./src/toxic_comment_collection/api_config.json')
- df = pd.read_csv("./files/albadi2018/albadi2018ar_train.csv", sep="\t")
- df.head()
-    id                                               text    labels
- 0   0  مؤسسة أرشيف المغرب تتسلم وثائق عن ذاكرة اليهود...  ['none']
- 1   1  مفتي السعودية حماس إرهابية وقتال اليهود حرام ش...  ['none']
- 2   2      أمراء ال سعود اليهود يخوضون حربا عن الصهيونيه  ['hate']
- 3   3  تحميل كتاب مقارنة الأديان: اليهودية تأليف أحمد...  ['none']
- 4   4  #هزه_ارضيه_في_جده\n\nهذه هيه الهزه الحقيقيه وت...  ['hate']
+get_dataset('albadi2018', api_config_path='./src/toxic_comment_collection/api_config.json')
+df = pd.read_csv("./files/albadi2018/albadi2018ar_train.csv", sep="\t")
+df.head()
+   id                                               text    labels
+0   0  مؤسسة أرشيف المغرب تتسلم وثائق عن ذاكرة اليهود...  ['none']
+1   1  مفتي السعودية حماس إرهابية وقتال اليهود حرام ش...  ['none']
+2   2      أمراء ال سعود اليهود يخوضون حربا عن الصهيونيه  ['hate']
+3   3  تحميل كتاب مقارنة الأديان: اليهودية تأليف أحمد...  ['none']
+4   4  #هزه_ارضيه_في_جده\n\nهذه هيه الهزه الحقيقيه وت...  ['hate']
 ```
 
 - All datasets can be downloaded automatically, which will take some time. To respect rate limits of the Twitter API, the program might sleep for several minutes and then continue automatically.
 ```
- from toxic_comment_collection import get_all_datasets
- get_all_datasets(api_config_path='./src/toxic_comment_collection/api_config.json')
+from toxic_comment_collection import get_all_datasets
+get_all_datasets(api_config_path='./src/toxic_comment_collection/api_config.json')
 ```
 
 - After downloading all datasets, they can be combined into one large tab-separated file. To this end, the file `./src/toxic_comment_collection/config.json` defines the mappings of different labels to a common subset as described in our [paper](https://aclanthology.org/2021.woah-1.17/). Note that we skip downloading all datasets in the following command:
 
 ```
- get_all_datasets(config_path="./src/toxic_comment_collection/config.json", skip_download=True, api_config_path='./src/toxic_comment_collection/api_config.json')
+get_all_datasets(config_path="./src/toxic_comment_collection/config.json", skip_download=True, api_config_path='./src/toxic_comment_collection/api_config.json')
 ```
 
 - A summary of all downloaded datasets can be generated with the `generate_statistics()` method:
 
 ```
- from toxic_comment_collection import generate_statistics
- generate_statistics('./files')
+from toxic_comment_collection import generate_statistics
+generate_statistics('./files')
 ```
 
 - It creates a file called `statistics.txt`:
