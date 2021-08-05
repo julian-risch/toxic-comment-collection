@@ -21,7 +21,7 @@ from toxic_comment_collection import get_dataset
 get_dataset('basile2019')
 ```
 
-- It's a simple as that. You can now work with the dataset, for example, with pandas
+- It's as simple as that. You can now work with the dataset, for example, with pandas
 ```
 import pandas as pd
 df = pd.read_csv("./files/basile2019/basile2019en.csv", sep="\t")
