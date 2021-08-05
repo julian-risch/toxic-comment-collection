@@ -36,7 +36,7 @@ df.head()
 4   4  Orban in Brussels: European leaders are ignori...        []
 ```
 - Some datasets require Twitter API credentials to be downloaded.
-Enter your Twitter API credentials in the file `./src/toxic_comment_collection/api_config.json`
+Enter your Twitter API credentials in a file `api_config.json` with the followoing format. You can store that in a directory of your choice. For this example, it's stored in `./src/toxic_comment_collection/api_config.json`.
 
   ```json
   {
@@ -60,7 +60,7 @@ df.head()
 0   0  مؤسسة أرشيف المغرب تتسلم وثائق عن ذاكرة اليهود...  ['none']
 1   1  مفتي السعودية حماس إرهابية وقتال اليهود حرام ش...  ['none']
 2   2      أمراء ال سعود اليهود يخوضون حربا عن الصهيونيه  ['hate']
-3   3  تحميل كتاب مقارنة الأديان: اليهودية تأليف أحمد...  ['none']
+3   3  تحميل كتاب مقارنة الأديان: اليهودية تأليف أحمد...   ['none']
 4   4  #هزه_ارضيه_في_جده\n\nهذه هيه الهزه الحقيقيه وت...  ['hate']
 ```
 
@@ -70,14 +70,12 @@ from toxic_comment_collection import get_all_datasets
 get_all_datasets(api_config_path='./src/toxic_comment_collection/api_config.json')
 ```
 
-- After downloading all datasets, they can be combined into one large tab-separated file. To this end, the file `./src/toxic_comment_collection/config.json` defines the mappings of different labels to a common subset as described in our [paper](https://aclanthology.org/2021.woah-1.17/). Note that we skip downloading all datasets in the following command:
-
+- After downloading all datasets, they can be combined into one large tab-separated file. To this end, the file `./src/toxic_comment_collection/config.json` defines the mappings of different labels to a common subset as described in our [paper](https://aclanthology.org/2021.woah-1.17/). You can download it [here](https://github.com/julian-risch/toxic-comment-collection/blob/main/src/toxic_comment_collection/config.json), as it is part of this GitHub repository. The resulting combined file is stored in `./files/combined.tsv`. Note that we skip downloading all datasets in the following command assuming you have already downloaded them:
 ```
 get_all_datasets(config_path="./src/toxic_comment_collection/config.json", skip_download=True, api_config_path='./src/toxic_comment_collection/api_config.json')
 ```
 
 - A summary of all downloaded datasets can be generated with the `generate_statistics()` method:
-
 ```
 from toxic_comment_collection import generate_statistics
 generate_statistics('./files')
