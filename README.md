@@ -26,6 +26,8 @@ get_dataset('basile2019')
 import pandas as pd
 df = pd.read_csv("./files/basile2019/basile2019en.csv", sep="\t")
 df.head()
+```
+```
    id                                               text    labels
 0   0  Hurray, saving us $$$ in so many ways @potus @...  ['hate']
 1   1  Why would young fighting age men be the vast m...  ['hate']
@@ -52,6 +54,8 @@ Enter your Twitter API credentials in the file `./src/toxic_comment_collection/a
 get_dataset('albadi2018', api_config_path='./src/toxic_comment_collection/api_config.json')
 df = pd.read_csv("./files/albadi2018/albadi2018ar_train.csv", sep="\t")
 df.head()
+```
+```
    id                                               text    labels
 0   0  مؤسسة أرشيف المغرب تتسلم وثائق عن ذاكرة اليهود...  ['none']
 1   1  مفتي السعودية حماس إرهابية وقتال اليهود حرام ش...  ['none']
