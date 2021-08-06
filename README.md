@@ -36,7 +36,7 @@ df.head()
 4   4  Orban in Brussels: European leaders are ignori...        []
 ```
 - Some datasets require Twitter API credentials to be downloaded.
-Enter your Twitter API credentials in a file `api_config.json` with the followoing format. You can store that in a directory of your choice. For this example, it's stored in `./src/toxic_comment_collection/api_config.json`.
+Enter your Twitter API credentials in a file `api_config.json` with the followoing format. You can store that in a directory of your choice. For this example, it's stored in `./src/toxic_comment_collection/api_config.json`. If you don't have Twitter API credentials yet, you can apply for them [here](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api).
 
   ```json
   {
