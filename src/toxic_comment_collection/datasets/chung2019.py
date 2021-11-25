@@ -7,7 +7,7 @@ import pandas as pd
 class Chung2019(dataset.Dataset):
     
     name = "chung2019"
-    url = "https://github.com/marcoguerini/CONAN/raw/master/CONAN.json"
+    url = "https://raw.githubusercontent.com/marcoguerini/CONAN/master/CONAN/CONAN.json"
     hash = "511c062b5563affbc78bb2c9d9edafd88fe6419add73b5190865bb42863eacc4"
     files = [
         {
